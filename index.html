@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>김용하 수능 수학 과외</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%233B82F6'/%3E%3Ctext x='50' y='68' font-size='50' font-family='Noto Sans KR, sans-serif' fill='white' text-anchor='middle' font-weight='bold'%3E수%3C/text%3E%3C/svg%3E">
+    <!-- 사이트 아이콘을 연필 모양으로 변경 -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233B82F6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z'/%3E%3Cpath d='m15 5 4 4'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +15,12 @@
         /* 기본 스타일 */
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans KR', sans-serif; }
-        /* 스크롤 잠금 클래스 */
-        html.modal-open {
+
+        /* 스크롤 잠금 클래스 (모바일 대응 강화) */
+        html.modal-open, body.modal-open {
             overflow: hidden;
+            position: fixed; /* iOS 스크롤 방지 */
+            width: 100%;
         }
 
         /* 메인 배경 이미지 */
@@ -76,9 +80,13 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         
-        /* 시간표 탭 스타일 */
+        /* 시간표 탭 스타일 (모바일 버그 수정) */
         .timetable-tab.active {
             border-color: #3b82f6; /* blue-500 */
+            background-color: #3b82f6;
+            color: white;
+        }
+        .timetable-tab.active:hover {
             background-color: #3b82f6;
             color: white;
         }
@@ -150,7 +158,7 @@
                             <div class="w-full md:w-1/2">
                                 <div class="bg-gray-100 p-6 rounded-lg h-full">
                                     <div class="flex items-center gap-6">
-                                        <img src="https://static.wixstatic.com/media/d9a698_bd02956d485646708f6c133c6bb97b8e~mv2.jpg/v1/fill/w_154,h_205,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/d9a698_bd02956d485646708f6c133c6bb97b8e~mv2.jpg" alt="강사 사진" class="rounded-lg shadow-md object-cover w-24 sm:w-32 h-auto flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/128x171/e0e0e0/555555?text=Photo';">
+                                        <img src="https://static.wixstatic.com/media/d9a698_5a19d1fae1cd4c6283208a37aaae6aab~mv2.jpg/v1/fill/w_135,h_180,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_0096.jpg" alt="강사 사진" class="rounded-lg shadow-md object-cover w-24 sm:w-32 h-auto flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/128x171/e0e0e0/555555?text=Photo';">
                                         <div class="text-left">
                                             <p class="text-2xl md:text-3xl font-bold">김용하</p>
                                             <p class="text-md md:text-lg text-gray-600">연세대학교 공과대학 22학번</p>
@@ -541,28 +549,28 @@
                         <h2 class="text-3xl font-bold text-center mb-4">수업 시간표</h2>
                         <div id="timetable-info" class="text-lg text-gray-600 mb-8 flex justify-between items-center w-full"></div>
                         
-                        <div class="flex justify-center flex-wrap gap-4 mb-8 text-xs sm:text-sm">
-                            <div class="flex items-center"><span class="w-4 h-4 rounded-full bg-gray-400 mr-2 border"></span>수업 중</div>
-                            <div class="flex items-center"><span class="w-4 h-4 rounded-full bg-yellow-300 mr-2 border"></span>시범 수업 중</div>
-                            <div class="flex items-center"><span class="w-4 h-4 rounded-full bg-blue-500 mr-2 border"></span>특별 수업</div>
-                        </div>
-
-                        <!-- Timetable Tabs -->
-                        <div class="mb-4 overflow-x-auto">
-                            <div class="flex border-b" id="timetable-tabs">
-                                <button data-day="mon" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">월</button>
-                                <button data-day="tue" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">화</button>
-                                <button data-day="wed" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">수</button>
-                                <button data-day="thu" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">목</button>
-                                <button data-day="fri" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">금</button>
-                                <button data-day="sat" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">토</button>
-                                <button data-day="sun" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100 active">일</button>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                            <div id="timetable-legend" class="md:col-span-1 p-4 bg-gray-50 rounded-lg self-start">
+                                <!-- 수업 현황 범례가 여기에 동적으로 삽입됩니다. -->
                             </div>
-                        </div>
-
-                        <!-- Timetable Content -->
-                        <div class="space-y-10" id="timetable-content">
-                            <!-- 요일별 수업 목록이 여기에 동적으로 삽입됩니다 -->
+                            <div class="md:col-span-3">
+                                <!-- Timetable Tabs -->
+                                <div class="mb-4 overflow-x-auto">
+                                    <div class="flex border-b" id="timetable-tabs">
+                                        <button data-day="mon" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">월</button>
+                                        <button data-day="tue" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">화</button>
+                                        <button data-day="wed" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">수</button>
+                                        <button data-day="thu" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">목</button>
+                                        <button data-day="fri" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">금</button>
+                                        <button data-day="sat" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">토</button>
+                                        <button data-day="sun" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100 active">일</button>
+                                    </div>
+                                </div>
+                                <!-- Timetable Content -->
+                                <div class="space-y-10" id="timetable-content">
+                                    <!-- 요일별 수업 목록이 여기에 동적으로 삽입됩니다 -->
+                                </div>
+                            </div>
                         </div>
                          <p class="text-xs text-center text-gray-500 mt-10">* 위 시간표는 실시간으로 업데이트 됩니다.</p>
                     </div>
@@ -709,26 +717,41 @@
     </footer>
 
     <div id="lightbox" class="lightbox">
-        <!-- 'onclick' 속성을 제거하고 ID를 부여하여 자바스크립트에서 제어합니다 -->
         <span id="lightbox-close-btn" class="absolute top-5 right-8 text-white text-5xl cursor-pointer">&times;</span>
         <img id="lightbox-img" src="" alt="확대된 이미지" class="lightbox-content rounded-lg shadow-2xl">
     </div>
 
     <script>
+        // 4. 페이지 새로고침 시 홈 화면으로 이동
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0,0);
+
         document.addEventListener('DOMContentLoaded', function () {
             const htmlEl = document.documentElement;
+            const bodyEl = document.body;
+            let lastScrollTop = 0;
 
-            // --- Modal & Scroll Lock Logic ---
+            // 3. 모바일에서 팝업 시 배경 스크롤 방지
             const openModal = (modal) => {
                 if (modal) {
+                    lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    bodyEl.style.top = `-${lastScrollTop}px`;
+                    
                     modal.style.display = 'flex';
                     htmlEl.classList.add('modal-open');
+                    bodyEl.classList.add('modal-open');
                 }
             };
             const closeModal = (modal) => {
                 if (modal) {
                     modal.style.display = 'none';
                     htmlEl.classList.remove('modal-open');
+                    bodyEl.classList.remove('modal-open');
+                    
+                    bodyEl.style.top = '';
+                    window.scrollTo(0, lastScrollTop);
                 }
             };
 
@@ -737,14 +760,13 @@
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const sections = document.querySelectorAll('main section[id]');
-            const navLinks = document.querySelectorAll('#main-header nav a.nav-link');
-            const mobileNavLinks = document.querySelectorAll('#mobile-menu a.nav-link');
+            const allNavLinks = document.querySelectorAll('a.nav-link');
 
             // --- 네비게이션 활성화 로직 ---
             const activateNav = (currentId) => {
-                const allLinks = [...navLinks, ...mobileNavLinks];
-                allLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+                allNavLinks.forEach(link => {
+                    const linkId = link.getAttribute('href').substring(1);
+                    link.classList.toggle('active', linkId === currentId);
                 });
             };
             
@@ -760,7 +782,7 @@
                                     activateNav(entry.target.id);
                                 }
                             });
-                        }, { rootMargin: `-${headerHeight}px 0px ${bottomOffset}px 0px` });
+                        }, { rootMargin: `-${headerHeight}px 0px ${bottomOffset}px 0px`, threshold: 0.1 });
                         
                         sections.forEach(section => { if (section) navObserver.observe(section); });
                     } else {
@@ -771,7 +793,7 @@
                 }
             };
             
-            // --- 부드러운 스크롤링 및 모바일 메뉴 닫기 ---
+            // --- 부드러운 스크롤링 및 네비게이션 버그 수정 ---
             const setupSmoothScrolling = () => {
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function (e) {
@@ -779,9 +801,13 @@
                         const targetId = this.getAttribute('href');
                         const targetElement = document.querySelector(targetId);
                         if (targetElement) {
+                            activateNav(targetId.substring(1));
+
                             const headerHeight = header ? header.offsetHeight : 0;
                             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                            
                             window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+
                             if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                                 mobileMenu.classList.add('hidden');
                             }
@@ -797,7 +823,7 @@
             // --- 모바일 메뉴 토글 ---
             if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-            // --- 라이트박스 로직 (오류 수정) ---
+            // --- 라이트박스 로직 ---
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
             const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
@@ -813,17 +839,9 @@
                         }
                     });
                 });
-
-                // 닫기 버튼 클릭 시 모달 닫기
-                lightboxCloseBtn.addEventListener('click', () => {
-                    closeModal(lightbox);
-                });
-
-                // 라이트박스 배경 클릭 시 모달 닫기
+                lightboxCloseBtn.addEventListener('click', () => closeModal(lightbox));
                 lightbox.addEventListener('click', (e) => {
-                    if (e.target !== lightboxImg) {
-                        closeModal(lightbox);
-                    }
+                    if (e.target !== lightboxImg) closeModal(lightbox);
                 });
             }
 
@@ -879,7 +897,7 @@
                     
                     const textArea = document.createElement('textarea');
                     textArea.value = formText;
-                    textArea.style.position = 'fixed'; // 화면에 보이지 않게 처리
+                    textArea.style.position = 'fixed';
                     textArea.style.top = '-9999px';
                     textArea.style.left = '-9999px';
                     document.body.appendChild(textArea);
@@ -897,38 +915,89 @@
                 });
             }
             
-            // --- 시간표 데이터 및 로직 ---
+            // 2. 시간표 데이터 및 로직 업데이트
             const timetableData = {
-                mon: [{ time: '19:00 - 21:00', subject: '팀 수업 (고2 수1)', status: '수업 중' }],
-                tue: [{ time: '17:00 - 19:00', subject: '1:1 개인 수업', status: '시범 수업 중' }],
-                wed: [],
-                thu: [{ time: '16:00 - 18:00', subject: '팀 수업 (고3 미적분)', status: '수업 중' }],
-                fri: [{ time: '19:00 - 21:00', subject: '1:1 개인 수업', status: '시범 수업 중' }],
-                sat: [{ time: '14:00 - 17:00', subject: '팀 수업 (N수생)', status: '수업 중' }],
+                mon: [
+                    { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' },
+                    { time: '16:00 - 19:00', subject: '송도고 팀수업 B', type: 'songdo-team' },
+                    { time: '19:00 - 22:00', subject: '인천고 팀수업 A', type: 'incheon-team' }
+                ],
+                tue: [
+                    { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' },
+                    { time: '17:00 - 20:00', subject: '인천고 팀수업 A', type: 'incheon-team' },
+                    { time: '20:00 - 22:00', subject: '시범 과외', type: 'trial' }
+                ],
+                wed: [
+                    { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' },
+                    { time: '16:00 - 19:00', subject: '송도고 팀수업 B', type: 'songdo-team' },
+                    { time: '19:30 - 21:30', subject: '인천고 팀수업 A', type: 'incheon-team' }
+                ],
+                thu: [
+                    { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' },
+                    { time: '17:00 - 20:00', subject: '송도고 팀수업 B', type: 'songdo-team' }
+                ],
+                fri: [
+                    { time: '16:00 - 19:00', subject: '인천고 팀수업 A', type: 'incheon-team' },
+                    { time: '19:00 - 22:00', subject: '송도고 팀수업 B', type: 'songdo-team' }
+                ],
+                sat: [
+                    { time: '14:00 - 17:00', subject: '시범 과외', type: 'trial' }
+                ],
                 sun: [
-                    { time: '10:30 - 12:10', subject: '실전 모의고사 반', status: '특별 수업' },
-                    { time: '16:00 - 18:00', subject: '1:1 개인 수업', status: '수업 중' }
+                    { time: '10:30 - 12:10', subject: '실전 모의고사 반', type: 'special' }
                 ]
             };
-            const statusStyles = {
-                '수업 중': 'border-gray-400',
-                '시범 수업 중': 'border-yellow-400',
-                '특별 수업': 'border-blue-500'
+            const typeStyles = {
+                'incheon-team': { border: 'border-yellow-400', legend: 'bg-yellow-300', badge: 'bg-yellow-200 text-yellow-800', text: '팀수업 A' },
+                'songdo-team': { border: 'border-green-400', legend: 'bg-green-300', badge: 'bg-green-200 text-green-800', text: '팀수업 B' },
+                'n-student': { border: 'border-blue-400', legend: 'bg-blue-300', badge: 'bg-blue-200 text-blue-800', text: '개인수업' },
+                'trial': { border: 'border-orange-400', legend: 'bg-orange-300', badge: 'bg-orange-200 text-orange-800', text: '시범과외' },
+                'special': { border: 'border-purple-400', legend: 'bg-purple-300', badge: 'bg-purple-200 text-purple-800', text: '특별수업' }
             };
-            const statusBadgeStyles = {
-                '수업 중': 'text-gray-700 bg-gray-300',
-                '시범 수업 중': 'text-yellow-800 bg-yellow-300',
-                '특별 수업': 'text-white bg-blue-500'
-            };
+            
             const timetableTabs = document.getElementById('timetable-tabs');
             const timetableContent = document.getElementById('timetable-content');
+            const legendContainer = document.getElementById('timetable-legend');
+
+            function renderLegend() {
+                const classTypes = {
+                    'incheon-team': { label: '인천고 3학년 팀 A', color: typeStyles['incheon-team'].legend, count: 0 },
+                    'songdo-team': { label: '송도고 3학년 팀 B', color: typeStyles['songdo-team'].legend, count: 0 },
+                    'n-student': { label: 'N수생 개인수업', color: typeStyles['n-student'].legend, count: 0 },
+                    'trial': { label: '시범 과외', color: typeStyles['trial'].legend, count: 0 }
+                };
+
+                // 가정된 팀 수 반영 (각각 4팀, 시범 2)
+                classTypes['incheon-team'].count = 4;
+                classTypes['songdo-team'].count = 4;
+                classTypes['n-student'].count = 4;
+                classTypes['trial'].count = 2;
+
+
+                let legendHTML = '<h3 class="text-xl font-bold mb-4 text-gray-800">수업 현황</h3><div class="space-y-3">';
+                for (const type in classTypes) {
+                    const info = classTypes[type];
+                    if (info.count > 0) {
+                        const unit = type.includes('team') ? '팀' : '명';
+                        legendHTML += `
+                            <div class="flex items-center text-sm">
+                                <span class="w-4 h-4 rounded-full ${info.color} mr-3 border border-gray-400 shadow-sm"></span>
+                                <span class="text-gray-700">${info.label} (${info.count}${unit})</span>
+                            </div>
+                        `;
+                    }
+                }
+                legendHTML += '</div>';
+                legendContainer.innerHTML = legendHTML;
+            }
+
 
             function renderTimetable(day) {
                 const dayData = timetableData[day] || [];
                 timetableContent.innerHTML = ''; 
 
                 if (dayData.length === 0) {
-                    timetableContent.innerHTML = `<div class="p-4 text-center text-gray-500">예약된 수업이 없습니다.</div>`;
+                    timetableContent.innerHTML = `<div class="p-8 text-center text-gray-500 bg-gray-50 rounded-lg">예약된 수업이 없습니다.</div>`;
                     return;
                 }
                 
@@ -944,18 +1013,19 @@
                         const periodContainer = document.createElement('div');
                         periodContainer.innerHTML = `<h4 class="text-xl font-semibold mb-4 text-gray-700">${period}</h4>`;
                         const grid = document.createElement('div');
-                        grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4';
+                        grid.className = 'grid grid-cols-1 sm:grid-cols-2 gap-4';
 
                         periodData.forEach(item => {
+                            const style = typeStyles[item.type] || { border: 'border-gray-400', badge: 'bg-gray-200 text-gray-800', text: '수업' };
                             const card = document.createElement('div');
-                            card.className = `bg-gray-50 p-4 rounded-lg shadow-sm border-l-4 ${statusStyles[item.status]}`;
+                            card.className = `bg-white p-4 rounded-lg shadow-sm border-l-4 ${style.border}`;
                             card.innerHTML = `
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h4 class="font-bold text-gray-800">${item.time}</h4>
                                         <p class="text-sm text-gray-600 mt-1">${item.subject}</p>
                                     </div>
-                                    <span class="text-xs font-semibold ${statusBadgeStyles[item.status]} px-2 py-1 rounded-full mt-1 inline-block whitespace-nowrap">${item.status}</span>
+                                    <span class="text-xs font-semibold ${style.badge} px-2 py-1 rounded-full mt-1 inline-block whitespace-nowrap">${style.text}</span>
                                 </div>
                             `;
                             grid.appendChild(card);
@@ -1007,8 +1077,9 @@
                 todayTab.classList.add('active');
                 renderTimetable(todayDayName);
             }
+            renderLegend(); // 범례 렌더링 함수 호출
 
-            // --- 자료 갤러리 로직 (스와이프 및 배경 클릭 닫기 추가) ---
+            // --- 자료 갤러리 로직 ---
             const galleryModal = document.getElementById('material-gallery-modal');
             const galleryTriggers = document.querySelectorAll('.material-gallery-trigger');
             const closeGalleryBtn = document.getElementById('close-gallery-btn');
