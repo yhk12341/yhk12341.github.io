@@ -16,11 +16,9 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans KR', sans-serif; }
 
-        /* 스크롤 잠금 클래스 (모바일 대응 강화) */
+        /* 스크롤 잠금 클래스 (수정) */
         html.modal-open, body.modal-open {
             overflow: hidden;
-            position: fixed; /* iOS 스크롤 방지 */
-            width: 100%;
         }
 
         /* 메인 배경 이미지 */
@@ -80,7 +78,7 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         
-        /* 시간표 탭 스타일 (모바일 버그 수정) */
+        /* 시간표 탭 스타일 */
         .timetable-tab.active {
             border-color: #3b82f6; /* blue-500 */
             background-color: #3b82f6;
@@ -722,7 +720,7 @@
     </div>
 
     <script>
-        // 4. 페이지 새로고침 시 홈 화면으로 이동
+        // 페이지 새로고침 시 홈 화면으로 이동
         if (history.scrollRestoration) {
             history.scrollRestoration = 'manual';
         }
@@ -731,14 +729,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             const htmlEl = document.documentElement;
             const bodyEl = document.body;
-            let lastScrollTop = 0;
 
-            // 3. 모바일에서 팝업 시 배경 스크롤 방지
+            // 팝업 스크롤 문제 해결 로직
             const openModal = (modal) => {
                 if (modal) {
-                    lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    bodyEl.style.top = `-${lastScrollTop}px`;
-                    
                     modal.style.display = 'flex';
                     htmlEl.classList.add('modal-open');
                     bodyEl.classList.add('modal-open');
@@ -749,9 +743,6 @@
                     modal.style.display = 'none';
                     htmlEl.classList.remove('modal-open');
                     bodyEl.classList.remove('modal-open');
-                    
-                    bodyEl.style.top = '';
-                    window.scrollTo(0, lastScrollTop);
                 }
             };
 
@@ -915,7 +906,7 @@
                 });
             }
             
-            // 2. 시간표 데이터 및 로직 업데이트
+            // --- 시간표 데이터 및 로직 업데이트 ---
             const timetableData = {
                 mon: [
                     { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' },
@@ -961,18 +952,11 @@
 
             function renderLegend() {
                 const classTypes = {
-                    'incheon-team': { label: '인천고 3학년 팀 A', color: typeStyles['incheon-team'].legend, count: 0 },
-                    'songdo-team': { label: '송도고 3학년 팀 B', color: typeStyles['songdo-team'].legend, count: 0 },
-                    'n-student': { label: 'N수생 개인수업', color: typeStyles['n-student'].legend, count: 0 },
-                    'trial': { label: '시범 과외', color: typeStyles['trial'].legend, count: 0 }
+                    'incheon-team': { label: '인천고 3학년 팀 A', color: typeStyles['incheon-team'].legend, count: 4 },
+                    'songdo-team': { label: '송도고 3학년 팀 B', color: typeStyles['songdo-team'].legend, count: 4 },
+                    'n-student': { label: 'N수생 개인수업', color: typeStyles['n-student'].legend, count: 4 },
+                    'trial': { label: '시범 과외', color: typeStyles['trial'].legend, count: 2 }
                 };
-
-                // 가정된 팀 수 반영 (각각 4팀, 시범 2)
-                classTypes['incheon-team'].count = 4;
-                classTypes['songdo-team'].count = 4;
-                classTypes['n-student'].count = 4;
-                classTypes['trial'].count = 2;
-
 
                 let legendHTML = '<h3 class="text-xl font-bold mb-4 text-gray-800">수업 현황</h3><div class="space-y-3">';
                 for (const type in classTypes) {
