@@ -16,7 +16,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans KR', sans-serif; }
 
-        /* 스크롤 잠금 클래스 (수정) */
+        /* 스크롤 잠금 클래스 */
         html.modal-open, body.modal-open {
             overflow: hidden;
         }
@@ -71,7 +71,7 @@
         }
         .lightbox-content, .modal-content-container { 
             max-width: 90%; 
-            max-height: 90vh; /* Viewport height 기준으로 최대 높이 설정 */
+            max-height: 90vh;
             animation: zoomIn 0.3s;
         }
 
@@ -117,8 +117,9 @@
                         <a href="#results" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">과외실적</a>
                         <a href="#philosophy" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">수업철학</a>
                         <a href="#timetable" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">시간표</a>
-                        <a href="#contact" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">문의</a>
                         <a href="#analysis" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">시험분석</a>
+                        <a href="#contact" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">문의</a>
+                        <a href="#faq" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">FAQ</a>
                     </div>
                 </li>
             </ul>
@@ -137,8 +138,9 @@
                 <li><a href="#philosophy" class="nav-link">수업철학</a></li>
                 <li><a href="#tuition" class="nav-link">수업료</a></li>
                 <li><a href="#timetable" class="nav-link">시간표</a></li>
-                <li><a href="#contact" class="nav-link">문의</a></li>
                 <li><a href="#analysis" class="nav-link">시험 분석</a></li>
+                <li><a href="#contact" class="nav-link">문의</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
             </ul>
         </div>
     </header>
@@ -187,7 +189,7 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- Part 2: Career (복구된 코드) -->
+                         <!-- Part 2: Career -->
                          <div class="mt-16 pt-10 border-t-2 border-dashed">
                             <div class="grid md:grid-cols-2 gap-10">
                                 <div class="bg-gray-100 p-6 rounded-lg">
@@ -322,25 +324,32 @@
                             </div>
                         </div>
                         <div class="mt-16 pt-10 border-t-2 border-dashed">
-                            <h3 class="text-2xl font-semibold text-gray-800 text-center">자체 제작 자료</h3>
-                            <p class="text-center text-gray-500 mt-2 mb-8">자료 이미지를 클릭하면 더 많은 샘플을 보실 수 있습니다.</p>
-                            <div class="grid grid-cols-3 gap-4 md:gap-8 text-center">
-                                <div class="p-2 md:p-4 bg-gray-100 rounded-lg material-gallery-trigger group cursor-pointer" data-gallery="concept">
-                                    <img src="https://static.wixstatic.com/media/d9a698_0fb84858adaf48b3be2db56963b6dedd~mv2.jpeg/v1/fill/w_459,h_647,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_9a0ac6174159_jpeg.jpeg" alt="자체 제작 개념 교재" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/250x354/e2e8f0/4a5568?text=개념교재';">
-                                    <h5 class="font-bold mt-3 text-sm md:text-lg">개념 교재</h5>
-                                    <p class="text-gray-600 text-xs md:text-sm mt-1">평가원의 시선으로<br class="sm:hidden"> 개념 완성</p>
-                                </div>
-                                <div class="p-2 md:p-4 bg-gray-100 rounded-lg material-gallery-trigger group cursor-pointer" data-gallery="past-questions">
-                                    <img src="https://static.wixstatic.com/media/d9a698_4f38e94a7b45416cb1eca28536c19c5e~mv2.jpeg/v1/fill/w_464,h_663,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_7a28ac05d702_jpeg.jpeg" alt="자체 제작 기출 교재" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/250x358/e2e8f0/4a5568?text=기출교재';">
-                                    <h5 class="font-bold mt-3 text-sm md:text-lg">기출 교재</h5>
-                                    <p class="text-gray-600 text-xs md:text-sm mt-1">핵심 기출 반복으로<br class="sm:hidden"> 실전 감각 체화</p>
-                                </div>
-                                 <div class="p-2 md:p-4 bg-gray-100 rounded-lg material-gallery-trigger group cursor-pointer" data-gallery="error-notes">
-                                    <!-- 2. 오답노트 이미지 변경 -->
-                                    <img src="https://static.wixstatic.com/media/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png/v1/fill/w_509,h_719,al_c,lg_1,q_90,enc_avif,quality_auto/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png" alt="오답노트 예시" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105">
-                                    <h5 class="font-bold mt-3 text-sm md:text-lg">오답노트</h5>
-                                    <p class="text-gray-600 text-xs md:text-sm mt-1">약점 분석 및<br class="sm:hidden"> 누적 복습</p>
-                                </div>
+                             <h3 class="text-2xl font-semibold text-gray-800 text-center">자체 제작 자료</h3>
+                             <p class="text-center text-gray-500 mt-2 mb-8">자료 이미지를 클릭하면 더 많은 샘플을 보실 수 있습니다.</p>
+                             <div class="grid grid-cols-3 gap-4 md:gap-8 text-center">
+                                 <div class="p-2 md:p-4 bg-gray-100 rounded-lg material-gallery-trigger group cursor-pointer" data-gallery="concept">
+                                     <img src="https://static.wixstatic.com/media/d9a698_0fb84858adaf48b3be2db56963b6dedd~mv2.jpeg/v1/fill/w_459,h_647,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_9a0ac6174159_jpeg.jpeg" alt="자체 제작 개념 교재" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/250x354/e2e8f0/4a5568?text=개념교재';">
+                                     <h5 class="font-bold mt-3 text-sm md:text-lg">개념 교재</h5>
+                                     <p class="text-gray-600 text-xs md:text-sm mt-1">평가원의 시선으로<br class="sm:hidden"> 개념 완성</p>
+                                 </div>
+                                 <div class="p-2 md:p-4 bg-gray-100 rounded-lg material-gallery-trigger group cursor-pointer" data-gallery="past-questions">
+                                     <img src="https://static.wixstatic.com/media/d9a698_4f38e94a7b45416cb1eca28536c19c5e~mv2.jpeg/v1/fill/w_464,h_663,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_7a28ac05d702_jpeg.jpeg" alt="자체 제작 기출 교재" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/250x358/e2e8f0/4a5568?text=기출교재';">
+                                     <h5 class="font-bold mt-3 text-sm md:text-lg">기출 교재</h5>
+                                     <p class="text-gray-600 text-xs md:text-sm mt-1">핵심 기출 반복으로<br class="sm:hidden"> 실전 감각 체화</p>
+                                 </div>
+                                  <div class="p-2 md:p-4 bg-gray-100 rounded-lg material-gallery-trigger group cursor-pointer" data-gallery="error-notes">
+                                     <img src="https://static.wixstatic.com/media/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png/v1/fill/w_509,h_719,al_c,lg_1,q_90,enc_avif,quality_auto/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png" alt="오답노트 예시" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105">
+                                     <h5 class="font-bold mt-3 text-sm md:text-lg">오답노트</h5>
+                                     <p class="text-gray-600 text-xs md:text-sm mt-1">약점 분석 및<br class="sm:hidden"> 누적 복습</p>
+                                 </div>
+                             </div>
+                        </div>
+                        <div class="mt-16 pt-10 border-t-2 border-dashed">
+                            <h3 class="text-2xl font-semibold text-gray-800 text-center">특별 수업: 현장 모의고사반</h3>
+                             <p class="text-center text-gray-500 mt-2 mb-8">실전 감각을 극대화하고, 어떤 상황에서도 최고점을 받을 수 있는 실력을 완성합니다.</p>
+                            <div class="max-w-xl mx-auto bg-purple-50 p-6 rounded-lg border-l-4 border-purple-400">
+                                <h4 class="font-bold text-lg text-purple-800">현장 모의고사 응시 및 해설 (4월 중순 개강)</h4>
+                                <p class="mt-3 text-gray-700">매주 일요일, 실제 수능 시간과 동일한 환경(10:30~12:10)에서 모의고사를 치릅니다. 꾸준한 실전 훈련은 수능 당일 최고의 실력을 발휘하기 위한 필수 과정입니다.</p>
                             </div>
                         </div>
                     </div>
@@ -388,14 +397,6 @@
                                 </li>
                             </ol>
                         </div>
-                        <div class="text-center mt-12">
-                            <button id="trial-apply-btn" class="inline-flex items-center gap-x-3 bg-blue-600 text-white font-bold text-lg py-3 px-8 rounded-lg shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all transform hover:-translate-y-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                                </svg>
-                                시범과외 신청하기
-                            </button>
-                        </div>
                     </div>
                 </section>
                 
@@ -407,7 +408,7 @@
                         <div class="mb-12">
                             <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">정규 과정 (4주 기준)</h3>
                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                 <div class="p-6 rounded-lg border bg-gray-50 flex flex-col shadow-sm">
+                                <div class="p-6 rounded-lg border bg-gray-50 flex flex-col shadow-sm">
                                     <h4 class="text-xl font-bold text-gray-800 mb-4 text-center">1:1 개인 수업</h4>
                                     <div class="space-y-4 flex-grow">
                                         <div class="p-4 bg-white rounded-md border">
@@ -426,7 +427,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                 <div class="p-6 rounded-lg border bg-gray-50 flex flex-col shadow-sm">
+                               <div class="p-6 rounded-lg border bg-gray-50 flex flex-col shadow-sm">
                                     <h4 class="text-xl font-bold text-gray-800 mb-4 text-center">팀 수업 (2~4인)</h4>
                                     <div class="space-y-4 flex-grow">
                                         <div class="p-4 bg-white rounded-md border">
@@ -451,7 +452,7 @@
                         <div class="pt-8 border-t">
                             <h3 class="text-2xl font-semibold text-center text-gray-700 mb-6">현장 모의고사 응시</h3>
                             <div class="max-w-md mx-auto">
-                                 <div class="p-6 rounded-lg border text-center bg-white shadow-md">
+                                <div class="p-6 rounded-lg border text-center bg-white shadow-md">
                                     <p class="font-bold text-lg text-gray-700">시험 응시 + 해설 강의</p>
                                     <p class="text-3xl font-bold text-blue-600 my-2">4만원 <span class="text-lg font-medium text-gray-500">/ 1회</span></p>
                                     <p class="text-sm text-gray-500">(매주 모의고사 및 해설지 제공)</p>
@@ -532,7 +533,7 @@
                                 <p class="mt-3">수능은 공부만으로 완성되지 않습니다. <strong>멘탈, 체력, 생활패턴 관리</strong>까지, 저의 성공 경험을 바탕으로 수험 생활 전반을 책임지고 이끌어가는 든든한 조력자가 되겠습니다.</p>
                             </div>
                             <div class="p-6 bg-blue-50 rounded-lg border-l-4 border-blue-400">
-                                <h4 class="font-bold text-lg text-blue-800">4. 학생의 성장을 위한 완전한 집중</h4>
+                                <h4 class="font-bold text-lg text-blue-800">4. 학생과 수업에 대한 완전한 집중</h4>
                                 <p class="mt-3">대학 재학 중 남는 시간에 하는 과외와는 다릅니다. 저는 군 전역 후 복학까지 미루고, 오직 2027년 수능을 준비하는 학생들만을 위해 1년을 온전히 바치기로 했습니다. 여러분의 노력에 저의 모든 시간과 경험을 더해 최고의 결과를 만들겠습니다.</p>
                             </div>
                         </div>
@@ -568,17 +569,65 @@
                                 </div>
                             </div>
                         </div>
-                         <p class="text-xs text-center text-gray-500 mt-10">* 위 시간표는 실시간으로 업데이트 됩니다.</p>
+                       <p class="text-xs text-center text-gray-500 mt-10">* 위 시간표는 실시간으로 업데이트 됩니다.</p>
                     </div>
                 </section>
                 
+                <!-- 섹션: 시험 분석 -->
+                <section id="analysis" class="content-section px-4">
+                    <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-bold text-center mb-12 border-b pb-4">2026학년도 평가원 시험 분석</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <!-- 6월 모의평가 카드 -->
+                            <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                <div class="bg-blue-100 text-blue-600 rounded-full p-4 mb-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                  </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">6월 모의평가</h3>
+                                <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto w-full inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-blue-700 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                                    <span>분석자료 보기</span>
+                                </a>
+                            </div>
+                            <!-- 9월 모의평가 카드 -->
+                            <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                <div class="bg-green-100 text-green-600 rounded-full p-4 mb-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                  </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">9월 모의평가</h3>
+                                <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto w-full inline-flex items-center justify-center gap-2 bg-green-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-green-700 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                                    <span>분석자료 보기</span>
+                                </a>
+                            </div>
+                            <!-- 수능 카드 -->
+                             <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                <div class="bg-red-100 text-red-600 rounded-full p-4 mb-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                  </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">대학수학능력시험</h3>
+                                <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto w-full inline-flex items-center justify-center gap-2 bg-red-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-red-700 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                                    <span>분석자료 보기</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- 섹션: 문의 -->
                 <section id="contact" class="content-section px-4">
                     <div class="bg-white p-8 md:p-12 rounded-xl shadow-lg">
                         <h2 class="text-3xl font-bold mb-4 text-center text-gray-800">최고의 결과를 향한 여정,<br class="sm:hidden"/> 제가 동행하겠습니다.</h2>
                         <p class="text-lg text-gray-600 mb-10 text-center">궁금한 점이 있다면 언제든지 편하게 문의해주세요.</p>
                         
-                        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
                             <!-- Phone -->
                             <a href="tel:010-4312-2731" class="block bg-blue-50 p-4 rounded-lg text-left hover:shadow-lg hover:-translate-y-1 transition-all group flex items-center space-x-4">
                                 <div class="inline-block p-3 bg-blue-100 text-blue-600 rounded-full group-hover:bg-blue-200 transition-colors">
@@ -587,17 +636,6 @@
                                 <div>
                                     <h4 class="text-lg font-bold text-gray-800">전화 & 문자</h4>
                                     <p class="font-semibold text-blue-600 group-hover:text-blue-800 text-base">010-4312-2731</p>
-                                </div>
-                            </a>
-
-                            <!-- Email -->
-                            <a href="mailto:youngha315@yonsei.ac.kr" class="block bg-green-50 p-4 rounded-lg text-left hover:shadow-lg hover:-translate-y-1 transition-all group flex items-center space-x-4">
-                                <div class="inline-block p-3 bg-green-100 text-green-600 rounded-full group-hover:bg-green-200 transition-colors">
-                                   <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-bold text-gray-800">이메일</h4>
-                                    <p class="font-semibold text-green-600 group-hover:text-green-800 text-base break-all">youngha315@yonsei.ac.kr</p>
                                 </div>
                             </a>
 
@@ -614,53 +652,72 @@
                         </div>
                     </div>
                 </section>
-
-                <!-- 섹션: 시험 분석 -->
-                <section id="analysis" class="content-section px-4">
+                
+                <!-- 섹션: FAQ -->
+                <section id="faq" class="content-section px-4">
                     <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-                        <h2 class="text-3xl font-bold text-center mb-4 border-b pb-4">2026학년도 평가원 시험 분석</h2>
-                        <p class="text-center text-gray-600 mb-12">각 항목을 클릭하면 손글씨 분석 PDF를 확인하실 수 있습니다.</p>
-                        <div class="grid grid-cols-3 gap-4 md:gap-8 text-center">
-                            <!-- 6월 모의평가 -->
-                            <div class="bg-gray-50 p-3 md:p-4 rounded-lg shadow-sm flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                                <div>
-                                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-4">6월 모의평가</h3>
-                                    <div class="group relative mb-4">
-                                        <img src="https://placehold.co/600x800/e2e8f0/4a5568?text=6월+모평+분석" alt="6월 모의평가 손글씨 분석" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x800/e0e0e0/555555?text=Image+Error';">
+                        <h2 class="text-3xl font-bold text-center mb-12 border-b pb-4">자주 묻는 질문 (FAQ)</h2>
+                        <div class="max-w-3xl mx-auto">
+                            <div id="qna-accordion" class="space-y-4">
+                                <!-- FAQ Item 1 -->
+                                <div class="qna-item border-b">
+                                    <button class="qna-header w-full flex justify-between items-center text-left py-4">
+                                        <span class="font-semibold text-lg text-gray-800">Q. 과외 대상은 어떻게 되나요?</span>
+                                        <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </button>
+                                    <div class="qna-answer hidden py-4 pl-4 pr-2 text-gray-600 bg-gray-50 rounded-b-lg">
+                                        <p>A. 2027학년도 수능을 응시하는 <strong class="text-blue-600">고3 및 N수생</strong>을 주 대상으로 합니다. 미적분을 선택한 학생들을 위한 커리큘럼이 준비되어 있습니다. 학생의 현재 수준과 목표에 맞춰 수업을 진행하므로, 중하위권부터 최상위권 학생까지 모두 수강 가능합니다.</p>
                                     </div>
                                 </div>
-                                <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-blue-700 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/></svg>
-                                    <span>PDF 보기</span>
-                                </a>
-                            </div>
-            
-                            <!-- 9월 모의평가 -->
-                            <div class="bg-gray-50 p-3 md:p-4 rounded-lg shadow-sm flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                               <div>
-                                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-4">9월 모의평가</h3>
-                                    <div class="group relative mb-4">
-                                        <img src="https://placehold.co/600x800/e2e8f0/4a5568?text=9월+모평+분석" alt="9월 모의평가 손글씨 분석" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x800/e0e0e0/555555?text=Image+Error';">
-                                    </div>
-                               </div>
-                               <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-blue-700 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/></svg>
-                                    <span>PDF 보기</span>
-                                </a>
-                            </div>
-            
-                            <!-- 수능 -->
-                            <div class="bg-gray-50 p-3 md:p-4 rounded-lg shadow-sm flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                                <div>
-                                    <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-4">대학수학능력시험</h3>
-                                    <div class="group relative mb-4">
-                                        <img src="https://placehold.co/600x800/e2e8f0/4a5568?text=수능+분석" alt="수능 손글씨 분석" class="rounded-lg shadow-md w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x800/e0e0e0/555555?text=Image+Error';">
+                
+                                <!-- FAQ Item 2 -->
+                                <div class="qna-item border-b">
+                                    <button class="qna-header w-full flex justify-between items-center text-left py-4">
+                                        <span class="font-semibold text-lg text-gray-800">Q. 수업은 어떤 방식으로 진행되나요?</span>
+                                        <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </button>
+                                    <div class="qna-answer hidden py-4 pl-4 pr-2 text-gray-600 bg-gray-50 rounded-b-lg">
+                                        <p>A. 저의 수업은 학생의 완벽한 성적 향상을 위해 <strong class="text-blue-600">체계적인 연간 커리큘럼</strong>과 <strong class="text-blue-600">정밀한 개인별 진단</strong>을 바탕으로 진행됩니다.
+                                        <br><br>
+                                        먼저 <strong class="text-gray-800">시범 과외</strong>를 통해 학생의 현재 실력과 취약점을 정확히 진단하고, 이를 바탕으로 개인 맞춤형 학습 계획을 수립합니다. 이후에는 <strong class="text-gray-800">개념 정복 → 심화 문제풀이 → 실전 감각 완성 → 파이널 총정리</strong>의 4단계 커리큘럼에 따라 흔들림 없는 실력을 쌓아갑니다.
+                                        <br><br>
+                                        모든 과정에서 학생이 스스로 약점을 인지하고 극복할 수 있도록 <strong class="text-gray-800">오답 분석 및 풀이 교정</strong>을 집중적으로 지도하며, 최종적으로 수능에서 최고의 결과를 얻도록 이끌어갑니다.
+                                        </p>
                                     </div>
                                 </div>
-                                <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-blue-700 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/></svg>
-                                    <span>PDF 보기</span>
-                                </a>
+                
+                                <!-- FAQ Item 3 -->
+                                <div class="qna-item border-b">
+                                    <button class="qna-header w-full flex justify-between items-center text-left py-4">
+                                        <span class="font-semibold text-lg text-gray-800">Q. 현장 모의고사 응시반은 어떤 수업인가요?</span>
+                                        <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </button>
+                                    <div class="qna-answer hidden py-4 pl-4 pr-2 text-gray-600 bg-gray-50 rounded-b-lg">
+                                        <p>A. <strong class="text-blue-600">4월 중순부터 개강</strong>하는 현장 모의고사반은, 매주 일요일 실제 수능 시간(10:30~12:10)에 맞춰 수능과 동일한 환경에서 실전 연습을 하는 수업입니다. 실제 시험장에서 마주할 수 있는 어떠한 돌발 상황에서도 흔들리지 않고 본인의 최고점을 이끌어내기 위해서는, <strong class="text-gray-800">꾸준하고 반복적인 실전 훈련이 반드시 필요합니다.</strong> 이 수업을 통해 실전 감각을 극대화하고 수능 당일 최고의 컨디션을 유지할 수 있도록 돕겠습니다.</p>
+                                    </div>
+                                </div>
+                
+                                <!-- FAQ Item 4 -->
+                                <div class="qna-item border-b">
+                                    <button class="qna-header w-full flex justify-between items-center text-left py-4">
+                                        <span class="font-semibold text-lg text-gray-800">Q. 친구와 함께 팀 수업을 듣고 싶어요.</span>
+                                        <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </button>
+                                    <div class="qna-answer hidden py-4 pl-4 pr-2 text-gray-600 bg-gray-50 rounded-b-lg">
+                                        <p>A. 네, 가능합니다. 뜻이 맞는 친구 2~4명이 모여 팀 수업을 신청할 수 있습니다. 함께 공부하며 서로 동기를 부여하고 선의의 경쟁을 통해 시너지를 낼 수 있도록 돕겠습니다. 시범 과외 신청 시, '동반 신청 학생 정보'란에 친구의 정보를 기재해주시면 됩니다.</p>
+                                    </div>
+                                </div>
+                
+                                <!-- FAQ Item 5 -->
+                                <div class="qna-item">
+                                    <button class="qna-header w-full flex justify-between items-center text-left py-4">
+                                        <span class="font-semibold text-lg text-gray-800">Q. 수업료 외에 추가 비용이 있나요?</span>
+                                        <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </button>
+                                    <div class="qna-answer hidden py-4 pl-4 pr-2 text-gray-600 bg-gray-50 rounded-b-lg">
+                                        <p>A. 수업에 필요한 <strong class="text-blue-600">자체 제작 교재(개념, 기출, 오답노트 등)와 분석 자료, 각종 인쇄물 등은 모두 수업료에 포함</strong>되어 있습니다. 다만, 수업 진행 중 필요한 시중 문제집(N제, 실전 모의고사 등)은 별도로 구매하셔야 하는 점 양해 부탁드립니다. 학습 효과를 극대화할 수 있는 좋은 교재들로 수업을 진행합니다.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -693,7 +750,7 @@
                         </div>
                          <div>
                             <label for="q3-type" class="font-bold text-gray-700">3. 목표 전형</label>
-                            <input type="text" id="q3-type" class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="예: 정시, 수시(논술), 수시(학생부종합)">
+                            <input type="text" id="q3-type" class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="예: 정시, 수시(학생부종합)">
                         </div>
                         <div>
                             <label for="q4-grade" class="font-bold text-gray-700">4. 최근 모의고사 성적 (수학)</label>
@@ -704,7 +761,7 @@
                             <textarea id="q5-history" rows="4" class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="어떤 방식으로 수학 공부를 해왔는지, 어떤 부분에서 어려움을 느꼈는지 자유롭게 서술해주세요."></textarea>
                         </div>
                         <div>
-                            <label for="q6-goal" class="font-bold text-gray-700">6. 목표 대학/학과</label>
+                            <label for="q6-goal" class="font-bold text-gray-700">6. 목표하는 대학/학과 또는 수능 성적</label>
                             <textarea id="q6-goal" rows="2" class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="1순위, 2순위 등 구체적으로 작성해주시면 좋습니다."></textarea>
                         </div>
                         <div>
@@ -757,6 +814,12 @@
             </div>
         </div>
     </div>
+
+    <!-- 플로팅 시범과외 신청 버튼 -->
+    <button id="floating-trial-btn" class="fixed bottom-6 right-6 bg-blue-600 text-white font-bold py-3 px-5 rounded-full shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all duration-300 transform translate-y-24 opacity-0 z-40 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+        <span>시범과외 신청</span>
+    </button>
 
 
     <footer class="bg-gray-800 text-white text-center p-6">
@@ -887,7 +950,6 @@
 
 
             // --- 시범과외 신청 모달 로직 ---
-            const trialApplyBtn = document.getElementById('trial-apply-btn');
             const trialModal = document.getElementById('trial-modal');
             const closeModalBtn = document.getElementById('close-modal-btn');
             const copyFormBtn = document.getElementById('copy-form-btn');
@@ -906,8 +968,7 @@
                 customAlertClose.addEventListener('click', () => { customAlert.style.display = 'none'; });
             }
 
-            if (trialApplyBtn && trialModal && closeModalBtn) {
-                trialApplyBtn.addEventListener('click', () => { openModal(trialModal); });
+            if (trialModal && closeModalBtn) {
                 closeModalBtn.addEventListener('click', () => { closeModal(trialModal); });
                 trialModal.addEventListener('click', (e) => { 
                     if (e.target.id === 'trial-modal') closeModal(trialModal);
@@ -923,7 +984,7 @@
                         { label: "3. 목표 전형", value: document.getElementById('q3-type').value.trim() },
                         { label: "4. 최근 모의고사 성적 (수학)", value: document.getElementById('q4-grade').value.trim() },
                         { label: "5. 학습 이력", value: document.getElementById('q5-history').value.trim() },
-                        { label: "6. 목표 대학/학과", value: document.getElementById('q6-goal').value.trim() },
+                        { label: "6. 목표하는 대학/학과 또는 수능 성적", value: document.getElementById('q6-goal').value.trim() },
                         { label: "7. 현재 수강 중인 학원", value: document.getElementById('q7-academy').value.trim() },
                         { label: "8. 동반 신청 학생 정보", value: document.getElementById('q8-friend').value.trim() },
                         { label: "9. 기타 문의사항", value: document.getElementById('q9-extra').value.trim() },
@@ -957,35 +1018,13 @@
             
             // --- 시간표 데이터 및 로직 업데이트 ---
             const timetableData = {
-                mon: [
-                    { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' },
-                    { time: '16:00 - 19:00', subject: '송도고 팀수업 B', type: 'songdo-team' },
-                    { time: '19:00 - 22:00', subject: '인천고 팀수업 A', type: 'incheon-team' }
-                ],
-                tue: [
-                    { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' },
-                    { time: '17:00 - 20:00', subject: '인천고 팀수업 A', type: 'incheon-team' },
-                    { time: '20:00 - 22:00', subject: '시범 과외', type: 'trial' }
-                ],
-                wed: [
-                    { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' },
-                    { time: '16:00 - 19:00', subject: '송도고 팀수업 B', type: 'songdo-team' },
-                    { time: '19:30 - 21:30', subject: '인천고 팀수업 A', type: 'incheon-team' }
-                ],
-                thu: [
-                    { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' },
-                    { time: '17:00 - 20:00', subject: '송도고 팀수업 B', type: 'songdo-team' }
-                ],
-                fri: [
-                    { time: '16:00 - 19:00', subject: '인천고 팀수업 A', type: 'incheon-team' },
-                    { time: '19:00 - 22:00', subject: '송도고 팀수업 B', type: 'songdo-team' }
-                ],
-                sat: [
-                    { time: '14:00 - 17:00', subject: '시범 과외', type: 'trial' }
-                ],
-                sun: [
-                    { time: '10:30 - 12:10', subject: '실전 모의고사 반', type: 'special' }
-                ]
+                mon: [ { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' }, { time: '16:00 - 19:00', subject: '송도고 팀수업 B', type: 'songdo-team' }, { time: '19:00 - 22:00', subject: '인천고 팀수업 A', type: 'incheon-team' } ],
+                tue: [ { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' }, { time: '17:00 - 20:00', subject: '인천고 팀수업 A', type: 'incheon-team' }, { time: '20:00 - 22:00', subject: '시범 과외', type: 'trial' } ],
+                wed: [ { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' }, { time: '16:00 - 19:00', subject: '송도고 팀수업 B', type: 'songdo-team' }, { time: '19:30 - 21:30', subject: '인천고 팀수업 A', type: 'incheon-team' } ],
+                thu: [ { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' }, { time: '17:00 - 20:00', subject: '송도고 팀수업 B', type: 'songdo-team' } ],
+                fri: [ { time: '16:00 - 19:00', subject: '인천고 팀수업 A', type: 'incheon-team' }, { time: '19:00 - 22:00', subject: '송도고 팀수업 B', type: 'songdo-team' } ],
+                sat: [ { time: '14:00 - 17:00', subject: '시범 과외', type: 'trial' } ],
+                sun: [ { time: '10:30 - 12:10', subject: '실전 모의고사 반', type: 'special' } ]
             };
             const typeStyles = {
                 'incheon-team': { border: 'border-yellow-400', legend: 'bg-yellow-300', badge: 'bg-yellow-200 text-yellow-800', text: '팀수업 A' },
@@ -1000,46 +1039,31 @@
             const legendContainer = document.getElementById('timetable-legend');
 
             function renderLegend() {
-                const classTypes = {
-                    'incheon-team': { label: '인천고 3학년 팀 A', color: typeStyles['incheon-team'].legend, count: 4 },
-                    'songdo-team': { label: '송도고 3학년 팀 B', color: typeStyles['songdo-team'].legend, count: 4 },
-                    'n-student': { label: 'N수생 개인수업', color: typeStyles['n-student'].legend, count: 4 },
-                    'trial': { label: '시범 과외', color: typeStyles['trial'].legend, count: 2 }
-                };
-
+                const classTypes = { 'incheon-team': { label: '인천고 3학년 팀 A', color: typeStyles['incheon-team'].legend, count: 4 }, 'songdo-team': { label: '송도고 3학년 팀 B', color: typeStyles['songdo-team'].legend, count: 4 }, 'n-student': { label: 'N수생 개인수업', color: typeStyles['n-student'].legend, count: 4 }, 'trial': { label: '시범 과외', color: typeStyles['trial'].legend, count: 2 } };
                 let legendHTML = '<h3 class="text-xl font-bold mb-4 text-gray-800">수업 현황</h3><div class="space-y-3">';
                 for (const type in classTypes) {
                     const info = classTypes[type];
                     if (info.count > 0) {
                         const unit = type.includes('team') ? '팀' : '명';
-                        legendHTML += `
-                            <div class="flex items-center text-sm">
-                                <span class="w-4 h-4 rounded-full ${info.color} mr-3 border border-gray-400 shadow-sm"></span>
-                                <span class="text-gray-700">${info.label} (${info.count}${unit})</span>
-                            </div>
-                        `;
+                        legendHTML += ` <div class="flex items-center text-sm"> <span class="w-4 h-4 rounded-full ${info.color} mr-3 border border-gray-400 shadow-sm"></span> <span class="text-gray-700">${info.label} (${info.count}${unit})</span> </div> `;
                     }
                 }
                 legendHTML += '</div>';
                 legendContainer.innerHTML = legendHTML;
             }
 
-
             function renderTimetable(day) {
                 const dayData = timetableData[day] || [];
                 timetableContent.innerHTML = ''; 
-
                 if (dayData.length === 0) {
                     timetableContent.innerHTML = `<div class="p-8 text-center text-gray-500 bg-gray-50 rounded-lg">예약된 수업이 없습니다.</div>`;
                     return;
                 }
-                
                 const timeSlots = {
                     '오전': dayData.filter(item => parseInt(item.time.split(':')[0]) < 12),
                     '오후': dayData.filter(item => parseInt(item.time.split(':')[0]) >= 12 && parseInt(item.time.split(':')[0]) < 18),
                     '저녁': dayData.filter(item => parseInt(item.time.split(':')[0]) >= 18)
                 };
-
                 Object.keys(timeSlots).forEach(period => {
                     const periodData = timeSlots[period];
                     if (periodData.length > 0) {
@@ -1047,20 +1071,11 @@
                         periodContainer.innerHTML = `<h4 class="text-xl font-semibold mb-4 text-gray-700">${period}</h4>`;
                         const grid = document.createElement('div');
                         grid.className = 'grid grid-cols-1 sm:grid-cols-2 gap-4';
-
                         periodData.forEach(item => {
                             const style = typeStyles[item.type] || { border: 'border-gray-400', badge: 'bg-gray-200 text-gray-800', text: '수업' };
                             const card = document.createElement('div');
                             card.className = `bg-white p-4 rounded-lg shadow-sm border-l-4 ${style.border}`;
-                            card.innerHTML = `
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <h4 class="font-bold text-gray-800">${item.time}</h4>
-                                        <p class="text-sm text-gray-600 mt-1">${item.subject}</p>
-                                    </div>
-                                    <span class="text-xs font-semibold ${style.badge} px-2 py-1 rounded-full mt-1 inline-block whitespace-nowrap">${style.text}</span>
-                                </div>
-                            `;
+                            card.innerHTML = ` <div class="flex justify-between items-start"> <div> <h4 class="font-bold text-gray-800">${item.time}</h4> <p class="text-sm text-gray-600 mt-1">${item.subject}</p> </div> <span class="text-xs font-semibold ${style.badge} px-2 py-1 rounded-full mt-1 inline-block whitespace-nowrap">${style.text}</span> </div> `;
                             grid.appendChild(card);
                         });
                         periodContainer.appendChild(grid);
@@ -1079,38 +1094,23 @@
                 });
             }
 
-            // --- 시간표 주차 및 D-day 기능 ---
-            const getWeekOfMonth = (date) => {
-                const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-                return Math.ceil((date.getDate() + firstDay) / 7);
-            };
+            const getWeekOfMonth = (date) => { const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay(); return Math.ceil((date.getDate() + firstDay) / 7); };
             const today = new Date();
             const year = today.getFullYear();
             const month = today.getMonth() + 1;
             const week = getWeekOfMonth(today);
-            const dday = new Date('2026-11-19'); // 2027학년도 수능일
+            const dday = new Date('2026-11-19');
             const gap = dday.getTime() - today.getTime();
             const remainingDays = Math.ceil(gap / (1000 * 60 * 60 * 24));
-            
             const timetableInfoEl = document.getElementById('timetable-info');
-            if (timetableInfoEl) {
-                timetableInfoEl.innerHTML = `
-                    <span class="flex-1 text-left"></span>
-                    <span class="flex-1 text-center font-semibold">${year}년 ${month}월 <strong class="text-blue-600">${week}주차</strong></span>
-                    <span class="flex-1 text-right text-sm font-medium">수능 D-<strong class="text-red-500 font-bold text-base">${remainingDays}</strong></span>
-                `;
-            }
-
+            if (timetableInfoEl) { timetableInfoEl.innerHTML = ` <span class="flex-1 text-left"></span> <span class="flex-1 text-center font-semibold">${year}년 ${month}월 <strong class="text-blue-600">${week}주차</strong></span> <span class="flex-1 text-right text-sm font-medium">수능 D-<strong class="text-red-500 font-bold text-base">${remainingDays}</strong></span> `; }
             const dayNames = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
             const todayDayName = dayNames[today.getDay()];
             const activeTab = document.querySelector('.timetable-tab.active');
             if(activeTab) activeTab.classList.remove('active');
             const todayTab = document.querySelector(`.timetable-tab[data-day="${todayDayName}"]`);
-            if (todayTab) {
-                todayTab.classList.add('active');
-                renderTimetable(todayDayName);
-            }
-            renderLegend(); // 범례 렌더링 함수 호출
+            if (todayTab) { todayTab.classList.add('active'); renderTimetable(todayDayName); }
+            renderLegend();
 
             // --- 자료 갤러리 로직 ---
             const galleryModal = document.getElementById('material-gallery-modal');
@@ -1121,83 +1121,68 @@
             const galleryCounter = document.getElementById('gallery-counter');
             const prevBtn = document.getElementById('prev-gallery-btn');
             const nextBtn = document.getElementById('next-gallery-btn');
-
             if(galleryModal && galleryTriggers.length > 0) {
-                const galleries = {
-                    concept: [
-                        'https://static.wixstatic.com/media/d9a698_0fb84858adaf48b3be2db56963b6dedd~mv2.jpeg/v1/fill/w_459,h_647,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_9a0ac6174159_jpeg.jpeg',
-                        'https://placehold.co/800x1131/e2e8f0/4a5568?text=개념교재+샘플+1',
-                        'https://placehold.co/800x1131/e2e8f0/4a5568?text=개념교재+샘플+2',
-                    ],
-                    'past-questions': [
-                        'https://static.wixstatic.com/media/d9a698_4f38e94a7b45416cb1eca28536c19c5e~mv2.jpeg/v1/fill/w_464,h_663,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_7a28ac05d702_jpeg.jpeg',
-                        'https://placehold.co/800x1131/e2e8f0/4a5568?text=기출교재+샘플+1',
-                        'https://placehold.co/800x1131/e2e8f0/4a5568?text=기출교재+샘플+2',
-                    ],
-                    'error-notes': [
-                        'https://static.wixstatic.com/media/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png/v1/fill/w_509,h_719,al_c,lg_1,q_90,enc_avif,quality_auto/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png',
-                        'https://placehold.co/800x1131/e2e8f0/4a5568?text=오답노트+샘플+2',
-                    ],
-                };
+                const galleries = { concept: [ 'https://static.wixstatic.com/media/d9a698_0fb84858adaf48b3be2db56963b6dedd~mv2.jpeg/v1/fill/w_459,h_647,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_9a0ac6174159_jpeg.jpeg', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=개념교재+샘플+1', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=개념교재+샘플+2', ], 'past-questions': [ 'https://static.wixstatic.com/media/d9a698_4f38e94a7b45416cb1eca28536c19c5e~mv2.jpeg/v1/fill/w_464,h_663,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_7a28ac05d702_jpeg.jpeg', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=기출교재+샘플+1', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=기출교재+샘플+2', ], 'error-notes': [ 'https://static.wixstatic.com/media/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png/v1/fill/w_509,h_719,al_c,lg_1,q_90,enc_avif,quality_auto/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=오답노트+샘플+2', ], };
                 let currentGallery = [];
                 let currentIndex = 0;
                 let touchStartX = 0;
                 let touchEndX = 0;
-
-                const updateGallery = () => {
-                    galleryImage.src = currentGallery[currentIndex];
-                    galleryCounter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
-                    galleryImage.style.opacity = 1;
-                };
-
+                const updateGallery = () => { galleryImage.src = currentGallery[currentIndex]; galleryCounter.textContent = `${currentIndex + 1} / ${currentGallery.length}`; galleryImage.style.opacity = 1; };
                 const changeImage = (isNext) => {
                     galleryImage.style.opacity = 0;
-                    setTimeout(() => {
-                        if (isNext) {
-                           currentIndex = (currentIndex + 1) % currentGallery.length;
-                        } else {
-                           currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-                        }
-                        updateGallery();
-                    }, 150);
+                    setTimeout(() => { if (isNext) { currentIndex = (currentIndex + 1) % currentGallery.length; } else { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; } updateGallery(); }, 150);
                 };
-                
-                galleryTriggers.forEach(trigger => {
-                    trigger.addEventListener('click', () => {
-                        const galleryKey = trigger.dataset.gallery;
-                        if (galleries[galleryKey] && galleries[galleryKey].length > 0) {
-                            currentGallery = galleries[galleryKey];
-                            currentIndex = 0;
-                            updateGallery();
-                            openModal(galleryModal);
-                        }
-                    });
-                });
-                
+                galleryTriggers.forEach(trigger => { trigger.addEventListener('click', () => { const galleryKey = trigger.dataset.gallery; if (galleries[galleryKey] && galleries[galleryKey].length > 0) { currentGallery = galleries[galleryKey]; currentIndex = 0; updateGallery(); openModal(galleryModal); } }); });
                 closeGalleryBtn.addEventListener('click', () => { closeModal(galleryModal); });
-                galleryModal.addEventListener('click', (e) => { 
-                    if (e.target === galleryModal) closeModal(galleryModal);
-                });
-                
+                galleryModal.addEventListener('click', (e) => { if (e.target === galleryModal) closeModal(galleryModal); });
                 prevBtn.addEventListener('click', (e) => { e.stopPropagation(); changeImage(false); });
                 nextBtn.addEventListener('click', (e) => { e.stopPropagation(); changeImage(true); });
-
-                // Swipe functionality
-                galleryImageContainer.addEventListener('touchstart', (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, { passive: true });
-
-                galleryImageContainer.addEventListener('touchend', (e) => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                });
-
-                function handleSwipe() {
-                    const swipeThreshold = 50; // Minimum swipe distance
-                    if (touchEndX < touchStartX - swipeThreshold) changeImage(true);
-                    if (touchEndX > touchStartX + swipeThreshold) changeImage(false);
-                }
+                galleryImageContainer.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+                galleryImageContainer.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); });
+                function handleSwipe() { const swipeThreshold = 50; if (touchEndX < touchStartX - swipeThreshold) changeImage(true); if (touchEndX > touchStartX + swipeThreshold) changeImage(false); }
             }
+
+            // --- 플로팅 버튼 로직 ---
+            const floatingTrialBtn = document.getElementById('floating-trial-btn');
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (floatingTrialBtn) {
+                    if (scrollTop > window.innerHeight / 2 && scrollTop < lastScrollTop) {
+                        floatingTrialBtn.classList.remove('opacity-0', 'translate-y-24');
+                        floatingTrialBtn.classList.add('opacity-100', 'translate-y-0');
+                    } else {
+                        floatingTrialBtn.classList.remove('opacity-100', 'translate-y-0');
+                        floatingTrialBtn.classList.add('opacity-0', 'translate-y-24');
+                    }
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }, false);
+
+            if (floatingTrialBtn) {
+                floatingTrialBtn.addEventListener('click', () => {
+                    openModal(trialModal);
+                });
+            }
+            
+            // --- FAQ 아코디언 로직 ---
+            const accordionItems = document.querySelectorAll('.qna-item');
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.qna-header');
+                const answer = item.querySelector('.qna-answer');
+                const icon = item.querySelector('svg');
+            
+                header.addEventListener('click', () => {
+                    const isHidden = answer.classList.contains('hidden');
+                    if (isHidden) {
+                        answer.classList.remove('hidden');
+                        icon.classList.add('rotate-180');
+                    } else {
+                        answer.classList.add('hidden');
+                        icon.classList.remove('rotate-180');
+                    }
+                });
+            });
         });
     </script>
 </body>
