@@ -91,7 +91,11 @@
         
         /* 갤러리 이미지 전환 효과 */
         #gallery-image {
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        #gallery-image.is-changing {
+            opacity: 0;
+            transform: scale(0.97);
         }
 
     </style>
@@ -232,6 +236,7 @@
                     <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
                         <h2 class="text-3xl font-bold text-center mb-4">1등급을 완성하는 연간 커리큘럼</h2>
                         <p class="text-center text-gray-600 mb-12">개념부터 실전까지, 가장 완벽한 길을 제시합니다.</p>
+                        <!-- 정규 과정 -->
                         <div class="relative mt-10">
                             <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-blue-200"></div>
                             <div class="relative mb-8 pb-8 border-b-2 border-dashed border-gray-200">
@@ -323,6 +328,16 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- 특별 수업 -->
+                        <div class="mt-16 pt-10 border-t-2 border-dashed">
+                            <h3 class="text-2xl font-semibold text-gray-800 text-center">특별 수업: 현장 모의고사반</h3>
+                             <p class="text-center text-gray-500 mt-2 mb-8">실전 감각을 극대화하고, 어떤 상황에서도 최고점을 받을 수 있는 실력을 완성합니다.</p>
+                            <div class="max-w-xl mx-auto bg-purple-50 p-6 rounded-lg border-l-4 border-purple-400">
+                                <h4 class="font-bold text-lg text-purple-800">현장 모의고사 응시 및 해설 (4월 중순 개강)</h4>
+                                <p class="mt-3 text-gray-700">매주 일요일, 실제 수능 시간과 동일한 환경(10:30~12:10)에서 모의고사를 치릅니다. 꾸준한 실전 훈련은 수능 당일 최고의 실력을 발휘하기 위한 필수 과정입니다.</p>
+                            </div>
+                        </div>
+                        <!-- 자체 제작 자료 -->
                         <div class="mt-16 pt-10 border-t-2 border-dashed">
                              <h3 class="text-2xl font-semibold text-gray-800 text-center">자체 제작 자료</h3>
                              <p class="text-center text-gray-500 mt-2 mb-8">자료 이미지를 클릭하면 더 많은 샘플을 보실 수 있습니다.</p>
@@ -343,14 +358,6 @@
                                      <p class="text-gray-600 text-xs md:text-sm mt-1">약점 분석 및<br class="sm:hidden"> 누적 복습</p>
                                  </div>
                              </div>
-                        </div>
-                        <div class="mt-16 pt-10 border-t-2 border-dashed">
-                            <h3 class="text-2xl font-semibold text-gray-800 text-center">특별 수업: 현장 모의고사반</h3>
-                             <p class="text-center text-gray-500 mt-2 mb-8">실전 감각을 극대화하고, 어떤 상황에서도 최고점을 받을 수 있는 실력을 완성합니다.</p>
-                            <div class="max-w-xl mx-auto bg-purple-50 p-6 rounded-lg border-l-4 border-purple-400">
-                                <h4 class="font-bold text-lg text-purple-800">현장 모의고사 응시 및 해설 (4월 중순 개강)</h4>
-                                <p class="mt-3 text-gray-700">매주 일요일, 실제 수능 시간과 동일한 환경(10:30~12:10)에서 모의고사를 치릅니다. 꾸준한 실전 훈련은 수능 당일 최고의 실력을 발휘하기 위한 필수 과정입니다.</p>
-                            </div>
                         </div>
                     </div>
                 </section>
@@ -577,44 +584,47 @@
                 <section id="analysis" class="content-section px-4">
                     <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
                         <h2 class="text-3xl font-bold text-center mb-12 border-b pb-4">2026학년도 평가원 시험 분석</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="grid grid-cols-3 gap-4">
                             <!-- 6월 모의평가 카드 -->
-                            <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                <div class="bg-blue-100 text-blue-600 rounded-full p-4 mb-4">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                            <div class="bg-gray-50 p-4 sm:p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                <div class="bg-blue-100 text-blue-600 rounded-full p-3 sm:p-4 mb-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                   </svg>
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">6월 모의평가</h3>
+                                <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4">6월 모의평가</h3>
                                 <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto w-full inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-blue-700 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
-                                    <span>분석자료 보기</span>
+                                    <span class="hidden sm:inline">분석자료 보기</span>
+                                    <span class="sm:hidden">자료 보기</span>
                                 </a>
                             </div>
                             <!-- 9월 모의평가 카드 -->
-                            <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                <div class="bg-green-100 text-green-600 rounded-full p-4 mb-4">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                            <div class="bg-gray-50 p-4 sm:p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                <div class="bg-green-100 text-green-600 rounded-full p-3 sm:p-4 mb-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                   </svg>
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">9월 모의평가</h3>
+                                <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4">9월 모의평가</h3>
                                 <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto w-full inline-flex items-center justify-center gap-2 bg-green-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-green-700 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
-                                    <span>분석자료 보기</span>
+                                    <span class="hidden sm:inline">분석자료 보기</span>
+                                    <span class="sm:hidden">자료 보기</span>
                                 </a>
                             </div>
                             <!-- 수능 카드 -->
-                             <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                <div class="bg-red-100 text-red-600 rounded-full p-4 mb-4">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                             <div class="bg-gray-50 p-4 sm:p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                <div class="bg-red-100 text-red-600 rounded-full p-3 sm:p-4 mb-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                   </svg>
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">대학수학능력시험</h3>
+                                <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4">대학수학능력시험</h3>
                                 <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto w-full inline-flex items-center justify-center gap-2 bg-red-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-red-700 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
-                                    <span>분석자료 보기</span>
+                                    <span class="hidden sm:inline">분석자료 보기</span>
+                                    <span class="sm:hidden">자료 보기</span>
                                 </a>
                             </div>
                         </div>
@@ -693,7 +703,7 @@
                                         <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                     </button>
                                     <div class="qna-answer hidden py-4 pl-4 pr-2 text-gray-600 bg-gray-50 rounded-b-lg">
-                                        <p>A. <strong class="text-blue-600">4월 중순부터 개강</strong>하는 현장 모의고사반은, 매주 일요일 실제 수능 시간(10:30~12:10)에 맞춰 수능과 동일한 환경에서 실전 연습을 하는 수업입니다. 실제 시험장에서 마주할 수 있는 어떠한 돌발 상황에서도 흔들리지 않고 본인의 최고점을 이끌어내기 위해서는, <strong class="text-gray-800">꾸준하고 반복적인 실전 훈련이 반드시 필요합니다.</strong> 이 수업을 통해 실전 감각을 극대화하고 수능 당일 최고의 컨디션을 유지할 수 있도록 돕겠습니다.</p>
+                                        <p>A. <strong class="text-blue-600">4월 중순부터 개강</strong>하는 현장 모의고사반은, 매주 일요일 실제 수능 시간(10:30~12:10)에 맞춰 수능과 동일한 환경에서 실전 연습을 하는 수업입니다. 매주 참석이 필수는 아니며, <strong class="text-gray-800">참여하고 싶은 주를 선택</strong>할 수 있습니다. 매주 사전에 참석 여부를 조사하여 수업을 진행할 예정입니다. 실제 시험장에서 마주할 수 있는 어떠한 돌발 상황에서도 흔들리지 않고 본인의 최고점을 이끌어내기 위해서는, 꾸준하고 반복적인 실전 훈련이 반드시 필요합니다.</p>
                                     </div>
                                 </div>
                 
@@ -707,15 +717,37 @@
                                         <p>A. 네, 가능합니다. 뜻이 맞는 친구 2~4명이 모여 팀 수업을 신청할 수 있습니다. 함께 공부하며 서로 동기를 부여하고 선의의 경쟁을 통해 시너지를 낼 수 있도록 돕겠습니다. 시범 과외 신청 시, '동반 신청 학생 정보'란에 친구의 정보를 기재해주시면 됩니다.</p>
                                     </div>
                                 </div>
-                
+                                
                                 <!-- FAQ Item 5 -->
-                                <div class="qna-item">
+                                <div class="qna-item border-b">
                                     <button class="qna-header w-full flex justify-between items-center text-left py-4">
                                         <span class="font-semibold text-lg text-gray-800">Q. 수업료 외에 추가 비용이 있나요?</span>
                                         <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                     </button>
                                     <div class="qna-answer hidden py-4 pl-4 pr-2 text-gray-600 bg-gray-50 rounded-b-lg">
                                         <p>A. 수업에 필요한 <strong class="text-blue-600">자체 제작 교재(개념, 기출, 오답노트 등)와 분석 자료, 각종 인쇄물 등은 모두 수업료에 포함</strong>되어 있습니다. 다만, 수업 진행 중 필요한 시중 문제집(N제, 실전 모의고사 등)은 별도로 구매하셔야 하는 점 양해 부탁드립니다. 학습 효과를 극대화할 수 있는 좋은 교재들로 수업을 진행합니다.</p>
+                                    </div>
+                                </div>
+
+                                <!-- FAQ Item 6 -->
+                                <div class="qna-item border-b">
+                                    <button class="qna-header w-full flex justify-between items-center text-left py-4">
+                                        <span class="font-semibold text-lg text-gray-800">Q. 수업은 어디서 진행되나요? 방문 과외도 가능한가요?</span>
+                                        <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </button>
+                                    <div class="qna-answer hidden py-4 pl-4 pr-2 text-gray-600 bg-gray-50 rounded-b-lg">
+                                        <p>A. 수업은 제 스터디룸에서 진행하는 것을 원칙으로 합니다. 최적의 학습 환경이 갖춰져 있어 학생의 집중력을 최대로 끌어올릴 수 있습니다. 학생의 상황에 따라 방문 과외도 협의가 가능하니, 편하게 문의해주시기 바랍니다.</p>
+                                    </div>
+                                </div>
+
+                                <!-- FAQ Item 7 -->
+                                <div class="qna-item">
+                                    <button class="qna-header w-full flex justify-between items-center text-left py-4">
+                                        <span class="font-semibold text-lg text-gray-800">Q. 학부모와의 소통은 어떻게 이루어지나요?</span>
+                                        <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </button>
+                                    <div class="qna-answer hidden py-4 pl-4 pr-2 text-gray-600 bg-gray-50 rounded-b-lg">
+                                        <p>A. 매월 마지막 주 수업이 끝난 후, 한 달간의 학습 내용, 성취도, 보완할 점 등을 정리한 <strong class="text-blue-600">월간 리포트</strong>를 보내드립니다. 또한, 수업 시간 외에도 궁금한 점이 있으시면 언제든지 편하게 문자로 문의하실 수 있으며, 필요시 전화 상담도 진행합니다.</p>
                                     </div>
                                 </div>
                             </div>
@@ -802,7 +834,7 @@
             </button>
             <div class="relative">
                 <div id="gallery-image-container" class="relative w-full h-full">
-                    <img id="gallery-image" src="" alt="자료 이미지" class="w-full h-auto max-h-[80vh] object-contain rounded-lg opacity-0 transition-opacity duration-300">
+                    <img id="gallery-image" src="" alt="자료 이미지" class="w-full h-auto max-h-[80vh] object-contain rounded-lg">
                 </div>
                 <button id="prev-gallery-btn" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full hover:bg-opacity-60 z-10">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
@@ -1039,13 +1071,19 @@
             const legendContainer = document.getElementById('timetable-legend');
 
             function renderLegend() {
-                const classTypes = { 'incheon-team': { label: '인천고 3학년 팀 A', color: typeStyles['incheon-team'].legend, count: 4 }, 'songdo-team': { label: '송도고 3학년 팀 B', color: typeStyles['songdo-team'].legend, count: 4 }, 'n-student': { label: 'N수생 개인수업', color: typeStyles['n-student'].legend, count: 4 }, 'trial': { label: '시범 과외', color: typeStyles['trial'].legend, count: 2 } };
+                const classTypes = { 
+                    'incheon-team': { label: '인천고 팀 A', count: 4 }, 
+                    'songdo-team': { label: '송도고 팀 B', count: 4 }, 
+                    'n-student': { label: 'N수생 개인', count: 4 }, 
+                    'trial': { label: '시범 과외', count: 2 } 
+                };
+
                 let legendHTML = '<h3 class="text-xl font-bold mb-4 text-gray-800">수업 현황</h3><div class="space-y-3">';
                 for (const type in classTypes) {
                     const info = classTypes[type];
+                    const style = typeStyles[type];
                     if (info.count > 0) {
-                        const unit = type.includes('team') ? '팀' : '명';
-                        legendHTML += ` <div class="flex items-center text-sm"> <span class="w-4 h-4 rounded-full ${info.color} mr-3 border border-gray-400 shadow-sm"></span> <span class="text-gray-700">${info.label} (${info.count}${unit})</span> </div> `;
+                        legendHTML += ` <div class="flex items-center text-sm"> <span class="w-4 h-4 rounded-full ${style.legend} mr-3 border border-gray-400 shadow-sm"></span> <span class="text-gray-700">${info.label} (${info.count}명)</span> </div> `;
                     }
                 }
                 legendHTML += '</div>';
@@ -1116,29 +1154,45 @@
             const galleryModal = document.getElementById('material-gallery-modal');
             const galleryTriggers = document.querySelectorAll('.material-gallery-trigger');
             const closeGalleryBtn = document.getElementById('close-gallery-btn');
-            const galleryImageContainer = document.getElementById('gallery-image-container');
             const galleryImage = document.getElementById('gallery-image');
             const galleryCounter = document.getElementById('gallery-counter');
             const prevBtn = document.getElementById('prev-gallery-btn');
             const nextBtn = document.getElementById('next-gallery-btn');
+            
             if(galleryModal && galleryTriggers.length > 0) {
                 const galleries = { concept: [ 'https://static.wixstatic.com/media/d9a698_0fb84858adaf48b3be2db56963b6dedd~mv2.jpeg/v1/fill/w_459,h_647,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_9a0ac6174159_jpeg.jpeg', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=개념교재+샘플+1', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=개념교재+샘플+2', ], 'past-questions': [ 'https://static.wixstatic.com/media/d9a698_4f38e94a7b45416cb1eca28536c19c5e~mv2.jpeg/v1/fill/w_464,h_663,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_7a28ac05d702_jpeg.jpeg', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=기출교재+샘플+1', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=기출교재+샘플+2', ], 'error-notes': [ 'https://static.wixstatic.com/media/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png/v1/fill/w_509,h_719,al_c,lg_1,q_90,enc_avif,quality_auto/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=오답노트+샘플+2', ], };
                 let currentGallery = [];
                 let currentIndex = 0;
-                let touchStartX = 0;
-                let touchEndX = 0;
-                const updateGallery = () => { galleryImage.src = currentGallery[currentIndex]; galleryCounter.textContent = `${currentIndex + 1} / ${currentGallery.length}`; galleryImage.style.opacity = 1; };
-                const changeImage = (isNext) => {
-                    galleryImage.style.opacity = 0;
-                    setTimeout(() => { if (isNext) { currentIndex = (currentIndex + 1) % currentGallery.length; } else { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; } updateGallery(); }, 150);
+                let isGalleryChanging = false;
+
+                const updateGallery = () => {
+                    galleryImage.src = currentGallery[currentIndex];
+                    galleryCounter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
                 };
-                galleryTriggers.forEach(trigger => { trigger.addEventListener('click', () => { const galleryKey = trigger.dataset.gallery; if (galleries[galleryKey] && galleries[galleryKey].length > 0) { currentGallery = galleries[galleryKey]; currentIndex = 0; updateGallery(); openModal(galleryModal); } }); });
+                
+                galleryImage.addEventListener('load', () => {
+                    galleryImage.classList.remove('is-changing');
+                    isGalleryChanging = false;
+                });
+                
+                const changeImage = (isNext) => {
+                    if (isGalleryChanging) return;
+                    isGalleryChanging = true;
+                    galleryImage.classList.add('is-changing');
+                    setTimeout(() => {
+                        if (isNext) { currentIndex = (currentIndex + 1) % currentGallery.length; } 
+                        else { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; }
+                        updateGallery();
+                    }, 300);
+                };
+
+                galleryTriggers.forEach(trigger => { trigger.addEventListener('click', () => { const galleryKey = trigger.dataset.gallery; if (galleries[galleryKey] && galleries[galleryKey].length > 0) { currentGallery = galleries[galleryKey]; currentIndex = 0; galleryImage.classList.add('is-changing'); updateGallery(); openModal(galleryModal); } }); });
                 closeGalleryBtn.addEventListener('click', () => { closeModal(galleryModal); });
                 galleryModal.addEventListener('click', (e) => { if (e.target === galleryModal) closeModal(galleryModal); });
                 prevBtn.addEventListener('click', (e) => { e.stopPropagation(); changeImage(false); });
                 nextBtn.addEventListener('click', (e) => { e.stopPropagation(); changeImage(true); });
-                galleryImageContainer.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-                galleryImageContainer.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); });
+                galleryImage.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+                galleryImage.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); });
                 function handleSwipe() { const swipeThreshold = 50; if (touchEndX < touchStartX - swipeThreshold) changeImage(true); if (touchEndX > touchStartX + swipeThreshold) changeImage(false); }
             }
 
