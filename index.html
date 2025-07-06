@@ -14,7 +14,10 @@
     <style>
         /* 기본 스타일 */
         html { scroll-behavior: smooth; }
-        body { font-family: 'Noto Sans KR', sans-serif; }
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            word-break: keep-all; /* 단어 단위 줄바꿈 적용 */
+        }
 
         /* 스크롤 잠금 클래스 */
         html.modal-open, body.modal-open {
@@ -78,17 +81,6 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         
-        /* 시간표 탭 스타일 */
-        .timetable-tab.active {
-            border-color: #3b82f6; /* blue-500 */
-            background-color: #3b82f6;
-            color: white;
-        }
-        .timetable-tab.active:hover {
-            background-color: #3b82f6;
-            color: white;
-        }
-        
         /* 갤러리 이미지 전환 효과 */
         #gallery-image {
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -120,7 +112,6 @@
                     <div class="absolute top-full left-1/2 -translate-x-1/2 w-32 bg-gray-800 rounded-md shadow-lg py-2 hidden group-hover:block z-10">
                         <a href="#results" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">과외실적</a>
                         <a href="#philosophy" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">수업철학</a>
-                        <a href="#timetable" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">시간표</a>
                         <a href="#analysis" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">시험분석</a>
                         <a href="#contact" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">문의</a>
                         <a href="#faq" class="nav-link block text-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">FAQ</a>
@@ -141,7 +132,6 @@
                 <li><a href="#results" class="nav-link">과외실적</a></li>
                 <li><a href="#philosophy" class="nav-link">수업철학</a></li>
                 <li><a href="#tuition" class="nav-link">수업료</a></li>
-                <li><a href="#timetable" class="nav-link">시간표</a></li>
                 <li><a href="#analysis" class="nav-link">시험 분석</a></li>
                 <li><a href="#contact" class="nav-link">문의</a></li>
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
@@ -156,7 +146,7 @@
                  onerror="this.style.backgroundImage='url(https://placehold.co/1920x1080/334155/e2e8f0?text=Background+Image+Error)'">
             <div class="relative z-10 p-4">
                 <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 drop-shadow-md">
-                    2027 수능 수학<br class="sm:hidden"> 미적분 과외 모집합니다.
+                    2027 수능 수학<br class="md:hidden"> 미적분 과외 모집합니다.
                 </h1>
             </div>
         </section>
@@ -234,7 +224,7 @@
                 <!-- 섹션 3: 커리큘럼 -->
                 <section id="curriculum" class="content-section px-4">
                     <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-                        <h2 class="text-3xl font-bold text-center mb-4">1등급을 완성하는 연간 커리큘럼</h2>
+                        <h2 class="text-3xl font-bold text-center mb-4">1등급을 완성하는<br class="sm:hidden"> 연간 커리큘럼</h2>
                         <p class="text-center text-gray-600 mb-12">개념부터 실전까지, 가장 완벽한 길을 제시합니다.</p>
                         <!-- 정규 과정 -->
                         <div class="relative mt-10">
@@ -472,7 +462,7 @@
                 <!-- 섹션: 과외 실적 -->
                 <section id="results" class="content-section px-4">
                     <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-                        <h2 class="text-3xl font-bold text-center mb-10 border-b pb-4">결과로 증명하는 과외 실적</h2>
+                        <h2 class="text-3xl font-bold text-center mb-10 border-b pb-4">결과로 증명하는<br class="sm:hidden"> 과외 실적</h2>
                         <div class="space-y-12">
                             <div class="grid md:grid-cols-2 gap-8 items-center">
                                 <div class="md:order-2 lightbox-trigger relative cursor-pointer group max-w-[12rem] sm:max-w-xs mx-auto">
@@ -546,84 +536,42 @@
                         </div>
                     </div>
                 </section>
-
-                <!-- 섹션: 시간표 -->
-                <section id="timetable" class="content-section px-4">
-                    <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-                        <h2 class="text-3xl font-bold text-center mb-4">수업 시간표</h2>
-                        <div id="timetable-info" class="text-lg text-gray-600 mb-8 flex justify-between items-center w-full"></div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                            <div id="timetable-legend" class="md:col-span-1 p-4 bg-gray-50 rounded-lg self-start">
-                                <!-- 수업 현황 범례가 여기에 동적으로 삽입됩니다. -->
-                            </div>
-                            <div class="md:col-span-3">
-                                <!-- Timetable Tabs -->
-                                <div class="mb-4 overflow-x-auto">
-                                    <div class="flex border-b" id="timetable-tabs">
-                                        <button data-day="mon" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">월</button>
-                                        <button data-day="tue" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">화</button>
-                                        <button data-day="wed" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">수</button>
-                                        <button data-day="thu" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">목</button>
-                                        <button data-day="fri" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">금</button>
-                                        <button data-day="sat" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100">토</button>
-                                        <button data-day="sun" class="timetable-tab flex-1 whitespace-nowrap py-2 px-4 font-semibold text-sm text-gray-600 border-b-2 border-transparent hover:bg-gray-100 active">일</button>
-                                    </div>
-                                </div>
-                                <!-- Timetable Content -->
-                                <div class="space-y-10" id="timetable-content">
-                                    <!-- 요일별 수업 목록이 여기에 동적으로 삽입됩니다 -->
-                                </div>
-                            </div>
-                        </div>
-                       <p class="text-xs text-center text-gray-500 mt-10">* 위 시간표는 실시간으로 업데이트 됩니다.</p>
-                    </div>
-                </section>
                 
                 <!-- 섹션: 시험 분석 -->
                 <section id="analysis" class="content-section px-4">
                     <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-                        <h2 class="text-3xl font-bold text-center mb-12 border-b pb-4">2026학년도 평가원 시험 분석</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <!-- 6월 모의평가 카드 -->
-                            <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                <div class="bg-blue-100 text-blue-600 rounded-full p-4 mb-4">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <h2 class="text-3xl font-bold text-center mb-12 border-b pb-4">2026학년도 평가원<br class="sm:hidden"> 시험 분석</h2>
+                        <div class="max-w-xl mx-auto space-y-4">
+                            <!-- 6월 모의평가 항목 -->
+                            <a href="김용하 과외 전단지.pdf" target="_blank" class="flex items-center p-4 bg-gray-50 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                                <div class="bg-blue-100 text-blue-600 rounded-full p-3 mr-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                   </svg>
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">6월 모의평가</h3>
-                                <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto w-full inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-blue-700 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
-                                    <span>분석자료 보기</span>
-                                </a>
-                            </div>
-                            <!-- 9월 모의평가 카드 -->
-                            <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                <div class="bg-green-100 text-green-600 rounded-full p-4 mb-4">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <h3 class="flex-grow text-lg font-bold text-gray-800">6월 모의평가 분석</h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-gray-400" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                            </a>
+                            <!-- 9월 모의평가 항목 -->
+                            <a href="김용하 과외 전단지.pdf" target="_blank" class="flex items-center p-4 bg-gray-50 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                                <div class="bg-green-100 text-green-600 rounded-full p-3 mr-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                   </svg>
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">9월 모의평가</h3>
-                                <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto w-full inline-flex items-center justify-center gap-2 bg-green-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-green-700 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
-                                    <span>분석자료 보기</span>
-                                </a>
-                            </div>
-                            <!-- 수능 카드 -->
-                             <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                <div class="bg-red-100 text-red-600 rounded-full p-4 mb-4">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <h3 class="flex-grow text-lg font-bold text-gray-800">9월 모의평가 분석</h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-gray-400" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                            </a>
+                            <!-- 수능 항목 -->
+                             <a href="김용하 과외 전단지.pdf" target="_blank" class="flex items-center p-4 bg-gray-50 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                                <div class="bg-red-100 text-red-600 rounded-full p-3 mr-4">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                   </svg>
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">대학수학능력시험</h3>
-                                <a href="김용하 과외 전단지.pdf" target="_blank" class="mt-auto w-full inline-flex items-center justify-center gap-2 bg-red-600 text-white font-semibold text-sm py-2 px-3 rounded-md hover:bg-red-700 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
-                                    <span>분석자료 보기</span>
-                                </a>
-                            </div>
+                                <h3 class="flex-grow text-lg font-bold text-gray-800">대학수학능력시험 분석</h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-gray-400" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -656,6 +604,14 @@
                                     <p class="font-semibold text-yellow-600 text-base">ID: youngha315</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="text-center mt-12">
+                            <button id="contact-trial-apply-btn" class="inline-flex items-center gap-x-3 bg-gradient-to-tr from-blue-500 to-indigo-600 text-white font-bold text-lg py-3 px-8 rounded-lg shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-700 transition-all transform hover:-translate-y-0.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                </svg>
+                                시범과외 신청하기
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -870,20 +826,27 @@
         document.addEventListener('DOMContentLoaded', function () {
             const htmlEl = document.documentElement;
             const bodyEl = document.body;
+            let scrollYPosition = 0;
 
             // 팝업 스크롤 문제 해결 로직
             const openModal = (modal) => {
                 if (modal) {
-                    modal.style.display = 'flex';
+                    scrollYPosition = window.scrollY;
+                    bodyEl.style.position = 'fixed';
+                    bodyEl.style.top = `-${scrollYPosition}px`;
+                    bodyEl.style.width = '100%';
                     htmlEl.classList.add('modal-open');
-                    bodyEl.classList.add('modal-open');
+                    modal.style.display = 'flex';
                 }
             };
             const closeModal = (modal) => {
                 if (modal) {
-                    modal.style.display = 'none';
                     htmlEl.classList.remove('modal-open');
-                    bodyEl.classList.remove('modal-open');
+                    bodyEl.style.position = '';
+                    bodyEl.style.top = '';
+                    bodyEl.style.width = '';
+                    window.scrollTo(0, scrollYPosition);
+                    modal.style.display = 'none';
                 }
             };
 
@@ -985,6 +948,7 @@
             const customAlert = document.getElementById('custom-alert');
             const customAlertMessage = document.getElementById('custom-alert-message');
             const customAlertClose = document.getElementById('custom-alert-close');
+            const contactTrialBtn = document.getElementById('contact-trial-apply-btn');
 
             function showCustomAlert(message) {
                 if(customAlert && customAlertMessage) {
@@ -998,6 +962,7 @@
             }
 
             if (trialModal && closeModalBtn) {
+                if (contactTrialBtn) contactTrialBtn.addEventListener('click', () => openModal(trialModal));
                 closeModalBtn.addEventListener('click', () => { closeModal(trialModal); });
                 trialModal.addEventListener('click', (e) => { 
                     if (e.target.id === 'trial-modal') closeModal(trialModal);
@@ -1045,108 +1010,6 @@
                 });
             }
             
-            // --- 시간표 데이터 및 로직 업데이트 ---
-            const timetableData = {
-                mon: [ { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' }, { time: '16:00 - 19:00', subject: '송도고 팀수업 B', type: 'songdo-team' }, { time: '19:00 - 22:00', subject: '인천고 팀수업 A', type: 'incheon-team' } ],
-                tue: [ { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' }, { time: '17:00 - 20:00', subject: '인천고 팀수업 A', type: 'incheon-team' }, { time: '20:00 - 22:00', subject: '시범 과외', type: 'trial' } ],
-                wed: [ { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' }, { time: '16:00 - 19:00', subject: '송도고 팀수업 B', type: 'songdo-team' }, { time: '19:30 - 21:30', subject: '인천고 팀수업 A', type: 'incheon-team' } ],
-                thu: [ { time: '10:00 - 12:00', subject: 'N수생 개인수업', type: 'n-student' }, { time: '17:00 - 20:00', subject: '송도고 팀수업 B', type: 'songdo-team' } ],
-                fri: [ { time: '16:00 - 19:00', subject: '인천고 팀수업 A', type: 'incheon-team' }, { time: '19:00 - 22:00', subject: '송도고 팀수업 B', type: 'songdo-team' } ],
-                sat: [ { time: '14:00 - 17:00', subject: '시범 과외', type: 'trial' } ],
-                sun: [ { time: '10:30 - 12:10', subject: '실전 모의고사 반', type: 'special' } ]
-            };
-            const typeStyles = {
-                'incheon-team': { border: 'border-yellow-400', legend: 'bg-yellow-300', badge: 'bg-yellow-200 text-yellow-800', text: '팀수업 A' },
-                'songdo-team': { border: 'border-green-400', legend: 'bg-green-300', badge: 'bg-green-200 text-green-800', text: '팀수업 B' },
-                'n-student': { border: 'border-blue-400', legend: 'bg-blue-300', badge: 'bg-blue-200 text-blue-800', text: '개인수업' },
-                'trial': { border: 'border-orange-400', legend: 'bg-orange-300', badge: 'bg-orange-200 text-orange-800', text: '시범과외' },
-                'special': { border: 'border-purple-400', legend: 'bg-purple-300', badge: 'bg-purple-200 text-purple-800', text: '특별수업' }
-            };
-            
-            const timetableTabs = document.getElementById('timetable-tabs');
-            const timetableContent = document.getElementById('timetable-content');
-            const legendContainer = document.getElementById('timetable-legend');
-
-            function renderLegend() {
-                const classTypes = { 
-                    'incheon-team': { label: '인천고 팀 A', count: 4 }, 
-                    'songdo-team': { label: '송도고 팀 B', count: 4 }, 
-                    'n-student': { label: 'N수생 개인', count: 4 }, 
-                    'trial': { label: '시범 과외', count: 2 } 
-                };
-
-                let legendHTML = '<h3 class="text-xl font-bold mb-4 text-gray-800">수업 현황</h3><div class="space-y-3">';
-                for (const type in classTypes) {
-                    const info = classTypes[type];
-                    const style = typeStyles[type];
-                    if (info.count > 0) {
-                        legendHTML += ` <div class="flex items-center text-sm"> <span class="w-4 h-4 rounded-full ${style.legend} mr-3 border border-gray-400 shadow-sm"></span> <span class="text-gray-700">${info.label} (${info.count}명)</span> </div> `;
-                    }
-                }
-                legendHTML += '</div>';
-                legendContainer.innerHTML = legendHTML;
-            }
-
-            function renderTimetable(day) {
-                const dayData = timetableData[day] || [];
-                timetableContent.innerHTML = ''; 
-                if (dayData.length === 0) {
-                    timetableContent.innerHTML = `<div class="p-8 text-center text-gray-500 bg-gray-50 rounded-lg">예약된 수업이 없습니다.</div>`;
-                    return;
-                }
-                const timeSlots = {
-                    '오전': dayData.filter(item => parseInt(item.time.split(':')[0]) < 12),
-                    '오후': dayData.filter(item => parseInt(item.time.split(':')[0]) >= 12 && parseInt(item.time.split(':')[0]) < 18),
-                    '저녁': dayData.filter(item => parseInt(item.time.split(':')[0]) >= 18)
-                };
-                Object.keys(timeSlots).forEach(period => {
-                    const periodData = timeSlots[period];
-                    if (periodData.length > 0) {
-                        const periodContainer = document.createElement('div');
-                        periodContainer.innerHTML = `<h4 class="text-xl font-semibold mb-4 text-gray-700">${period}</h4>`;
-                        const grid = document.createElement('div');
-                        grid.className = 'grid grid-cols-1 sm:grid-cols-2 gap-4';
-                        periodData.forEach(item => {
-                            const style = typeStyles[item.type] || { border: 'border-gray-400', badge: 'bg-gray-200 text-gray-800', text: '수업' };
-                            const card = document.createElement('div');
-                            card.className = `bg-white p-4 rounded-lg shadow-sm border-l-4 ${style.border}`;
-                            card.innerHTML = ` <div class="flex justify-between items-start"> <div> <h4 class="font-bold text-gray-800">${item.time}</h4> <p class="text-sm text-gray-600 mt-1">${item.subject}</p> </div> <span class="text-xs font-semibold ${style.badge} px-2 py-1 rounded-full mt-1 inline-block whitespace-nowrap">${style.text}</span> </div> `;
-                            grid.appendChild(card);
-                        });
-                        periodContainer.appendChild(grid);
-                        timetableContent.appendChild(periodContainer);
-                    }
-                });
-            }
-
-            if(timetableTabs && timetableContent) {
-                timetableTabs.addEventListener('click', (e) => {
-                    if (e.target.tagName === 'BUTTON') {
-                        document.querySelector('.timetable-tab.active').classList.remove('active');
-                        e.target.classList.add('active');
-                        renderTimetable(e.target.dataset.day);
-                    }
-                });
-            }
-
-            const getWeekOfMonth = (date) => { const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay(); return Math.ceil((date.getDate() + firstDay) / 7); };
-            const today = new Date();
-            const year = today.getFullYear();
-            const month = today.getMonth() + 1;
-            const week = getWeekOfMonth(today);
-            const dday = new Date('2026-11-19');
-            const gap = dday.getTime() - today.getTime();
-            const remainingDays = Math.ceil(gap / (1000 * 60 * 60 * 24));
-            const timetableInfoEl = document.getElementById('timetable-info');
-            if (timetableInfoEl) { timetableInfoEl.innerHTML = ` <span class="flex-1 text-left"></span> <span class="flex-1 text-center font-semibold">${year}년 ${month}월 <strong class="text-blue-600">${week}주차</strong></span> <span class="flex-1 text-right text-sm font-medium">수능 D-<strong class="text-red-500 font-bold text-base">${remainingDays}</strong></span> `; }
-            const dayNames = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
-            const todayDayName = dayNames[today.getDay()];
-            const activeTab = document.querySelector('.timetable-tab.active');
-            if(activeTab) activeTab.classList.remove('active');
-            const todayTab = document.querySelector(`.timetable-tab[data-day="${todayDayName}"]`);
-            if (todayTab) { todayTab.classList.add('active'); renderTimetable(todayDayName); }
-            renderLegend();
-
             // --- 자료 갤러리 로직 ---
             const galleryModal = document.getElementById('material-gallery-modal');
             const galleryTriggers = document.querySelectorAll('.material-gallery-trigger');
