@@ -650,14 +650,14 @@
                             <p class="text-gray-400 mb-8 text-center">자료 이미지를 클릭하면 더 많은 샘플을 보실 수 있습니다.</p>
                             <div class="grid grid-cols-3 gap-4 md:gap-8 text-center">
                                 <div class="material-gallery-trigger group cursor-pointer" data-gallery="concept">
-                                    <img src="https://static.wixstatic.com/media/d9a698_0fb84858adaf48b3be2db56963b6dedd~mv2.jpeg/v1/fill/w_459,h_647,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_9a0ac6174159_jpeg.jpeg" alt="개념 교재" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105 active:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/250x354/e2e8f0/4a5568?text=개념교재';">
+                                    <img src="https://static.wixstatic.com/media/d9a698_30dd193553204f79bdcb6c2458a6f23a~mv2.png/v1/fill/w_424,h_600,al_c,q_85,enc_avif,quality_auto/d9a698_30dd193553204f79bdcb6c2458a6f23a~mv2.png" alt="개념 교재" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105 active:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/250x354/e2e8f0/4a5568?text=개념교재';">
                                     <h5 class="font-semibold mt-2 text-sm text-gray-300">개념 교재</h5>
                                     <p class="text-xs text-gray-500">평가원의 시선으로 개념 완성</p>
                                 </div>
-                                <div class="material-gallery-trigger group cursor-pointer" data-gallery="past-questions">
-                                    <img src="https://static.wixstatic.com/media/d9a698_4f38e94a7b45416cb1eca28536c19c5e~mv2.jpeg/v1/fill/w_464,h_663,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TalkMedia_i_7a28ac05d702_jpeg.jpeg" alt="기출 교재" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105 active:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/250x358/e2e8f0/4a5568?text=기출교재';">
-                                    <h5 class="font-semibold mt-2 text-sm text-gray-300">기출 교재</h5>
-                                    <p class="text-xs text-gray-500">핵심 기출 반복으로 실전 감각 체화</p>
+                                <div class="material-gallery-trigger group cursor-pointer" data-gallery="past-questions-analysis">
+                                    <img src="https://placehold.co/250x354/e2e8f0/4a5568?text=기출분석" alt="5개년 평가원 기출분석" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105 active:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/250x354/e2e8f0/4a5568?text=기출분석';">
+                                    <h5 class="font-semibold mt-2 text-sm text-gray-300">5개년 평가원 기출분석</h5>
+                                    <p class="text-xs text-gray-500">최신 경향 완벽 분석</p>
                                 </div>
                                 <div class="material-gallery-trigger group cursor-pointer" data-gallery="error-notes">
                                     <img src="https://static.wixstatic.com/media/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png/v1/fill/w_509,h_719,al_c,lg_1,q_90,enc_avif,quality_auto/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png" alt="오답노트" class="rounded-lg shadow-md w-full h-auto mx-auto transition-transform group-hover:scale-105 active:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/250x354/e2e8f0/4a5568?text=오답노트';">
@@ -1237,9 +1237,22 @@
             const prevBtn = document.getElementById('prev-gallery-btn');
             const nextBtn = document.getElementById('next-gallery-btn');
             if(galleryModal && galleryTriggers.length > 0) {
-                const galleries = { 
-                    concept: [ 'https://static.wixstatic.com/media/d9a698_0fb84858adaf48b3be2db56963b6dedd~mv2.jpeg', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=개념교재+샘플+2', 'https://placehold.co/800x1131/e2e8f0/4a5568?text=개념교재+샘플+3', ], 
-                    'past-questions': [ 'https://static.wixstatic.com/media/d9a698_4f38e94a7b45416cb1eca28536c19c5e~mv2.jpeg', 'https://placehold.co/800x1143/e2e8f0/4a5568?text=기출교재+샘플+2', 'https://placehold.co/800x1143/e2e8f0/4a5568?text=기출교재+샘플+3', ], 
+                const galleries = {
+                    concept: [
+                        'https://static.wixstatic.com/media/d9a698_30dd193553204f79bdcb6c2458a6f23a~mv2.png/v1/fill/w_424,h_600,al_c,q_85,enc_avif,quality_auto/d9a698_30dd193553204f79bdcb6c2458a6f23a~mv2.png',
+                        'https://static.wixstatic.com/media/d9a698_285db077ff424872b250c6167199dc67~mv2.png/v1/fill/w_424,h_600,al_c,q_85,enc_avif,quality_auto/d9a698_285db077ff424872b250c6167199dc67~mv2.png',
+                        'https://static.wixstatic.com/media/d9a698_ccb4d62b96ae48a0bff6fd5eaf6240d4~mv2.png/v1/fill/w_424,h_600,al_c,q_85,enc_avif,quality_auto/d9a698_ccb4d62b96ae48a0bff6fd5eaf6240d4~mv2.png',
+                        'https://static.wixstatic.com/media/d9a698_9b352284c8e3446689caf972cc5bdff1~mv2.png/v1/fill/w_424,h_600,al_c,q_85,enc_avif,quality_auto/d9a698_9b352284c8e3446689caf972cc5bdff1~mv2.png',
+                        'https://static.wixstatic.com/media/d9a698_49ebc625135b4f9db07064659a18a4da~mv2.png/v1/fill/w_424,h_600,al_c,q_85,enc_avif,quality_auto/d9a698_49ebc625135b4f9db07064659a18a4da~mv2.png',
+                        'https://static.wixstatic.com/media/d9a698_462ddf649702441ea55eac88f404280e~mv2.png/v1/fill/w_424,h_600,al_c,q_85,enc_avif,quality_auto/d9a698_462ddf649702441ea55eac88f404280e~mv2.png',
+                        'https://static.wixstatic.com/media/d9a698_d66e63dc7f5543cda2d2ce93c059c59d~mv2.png/v1/fill/w_424,h_600,al_c,q_85,enc_avif,quality_auto/d9a698_d66e63dc7f5543cda2d2ce93c059c59d~mv2.png',
+                        'https://static.wixstatic.com/media/d9a698_012f66f8c14e41d1a8a579988b6a489f~mv2.png/v1/fill/w_424,h_600,al_c,q_85,enc_avif,quality_auto/d9a698_012f66f8c14e41d1a8a579988b6a489f~mv2.png',
+                        'https://static.wixstatic.com/media/d9a698_c2be0bc46c104a239c1780f389fc3675~mv2.png/v1/fill/w_424,h_600,al_c,q_85,enc_avif,quality_auto/d9a698_c2be0bc46c104a239c1780f389fc3675~mv2.png'
+                    ],
+                    'past-questions-analysis': [
+                        'https://placehold.co/800x1129/e2e8f0/4a5568?text=기출분석+샘플+1',
+                        'https://placehold.co/800x1129/e2e8f0/4a5568?text=기출분석+샘플+2',
+                    ],
                     'error-notes': [ 'https://static.wixstatic.com/media/d9a698_0c0760b5b984483a9eb8bc385e4171e1~mv2.png', 'https://placehold.co/800x1129/e2e8f0/4a5568?text=오답노트+샘플+2', ]
                 };
                 let currentGallery = []; let currentIndex = 0; let isGalleryChanging = false;
@@ -1469,5 +1482,6 @@
     </script>
 </body>
 </html>
+
 
 
